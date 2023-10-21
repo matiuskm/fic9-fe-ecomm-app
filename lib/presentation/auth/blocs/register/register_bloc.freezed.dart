@@ -19,19 +19,19 @@ mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(RegisterRequestModel data) register,
+    required TResult Function(RegisterRequestModel? data) register,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(RegisterRequestModel data)? register,
+    TResult? Function(RegisterRequestModel? data)? register,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(RegisterRequestModel data)? register,
+    TResult Function(RegisterRequestModel? data)? register,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(RegisterRequestModel data) register,
+    required TResult Function(RegisterRequestModel? data) register,
   }) {
     return started();
   }
@@ -122,7 +122,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(RegisterRequestModel data)? register,
+    TResult? Function(RegisterRequestModel? data)? register,
   }) {
     return started?.call();
   }
@@ -131,7 +131,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(RegisterRequestModel data)? register,
+    TResult Function(RegisterRequestModel? data)? register,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -182,7 +182,7 @@ abstract class _$$RegisterImplCopyWith<$Res> {
           _$RegisterImpl value, $Res Function(_$RegisterImpl) then) =
       __$$RegisterImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RegisterRequestModel data});
+  $Res call({RegisterRequestModel? data});
 }
 
 /// @nodoc
@@ -196,13 +196,13 @@ class __$$RegisterImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$RegisterImpl(
-      null == data
+      freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as RegisterRequestModel,
+              as RegisterRequestModel?,
     ));
   }
 }
@@ -213,7 +213,7 @@ class _$RegisterImpl implements _Register {
   const _$RegisterImpl(this.data);
 
   @override
-  final RegisterRequestModel data;
+  final RegisterRequestModel? data;
 
   @override
   String toString() {
@@ -241,7 +241,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(RegisterRequestModel data) register,
+    required TResult Function(RegisterRequestModel? data) register,
   }) {
     return register(data);
   }
@@ -250,7 +250,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(RegisterRequestModel data)? register,
+    TResult? Function(RegisterRequestModel? data)? register,
   }) {
     return register?.call(data);
   }
@@ -259,7 +259,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(RegisterRequestModel data)? register,
+    TResult Function(RegisterRequestModel? data)? register,
     required TResult orElse(),
   }) {
     if (register != null) {
@@ -301,9 +301,9 @@ class _$RegisterImpl implements _Register {
 }
 
 abstract class _Register implements RegisterEvent {
-  const factory _Register(final RegisterRequestModel data) = _$RegisterImpl;
+  const factory _Register(final RegisterRequestModel? data) = _$RegisterImpl;
 
-  RegisterRequestModel get data;
+  RegisterRequestModel? get data;
   @JsonKey(ignore: true)
   _$$RegisterImplCopyWith<_$RegisterImpl> get copyWith =>
       throw _privateConstructorUsedError;
