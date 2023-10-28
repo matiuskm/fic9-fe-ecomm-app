@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fic9_ecommerce_app/common/constants/colors.dart';
 import 'package:flutter_fic9_ecommerce_app/common/constants/images.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/account/account_page.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/home/home_page.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -21,9 +22,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const Center(
       child: Text('Cart Page'),
     ),
-    const Center(
-      child: Text('Profile Page'),
-    ),
+    const AccountPage(),
   ];
 
   void _onItemTapped(int index) {

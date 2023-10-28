@@ -29,7 +29,7 @@ class CategoryButton extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(50.0)),
                 border: Border.all(color: ColorName.grey),
               ),
-              child: Image.asset(
+              child: Image.network(
                 imagePath,
                 width: 44.0,
                 height: 44.0,
@@ -37,13 +37,19 @@ class CategoryButton extends StatelessWidget {
               ),
             ),
             const SpaceHeight(8.0),
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w400,
-                color: ColorName.grey,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    color: ColorName.grey,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

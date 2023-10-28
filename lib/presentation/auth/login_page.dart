@@ -5,6 +5,7 @@ import 'package:flutter_fic9_ecommerce_app/common/components/custom_text_field.d
 import 'package:flutter_fic9_ecommerce_app/common/components/spaces.dart';
 import 'package:flutter_fic9_ecommerce_app/common/constants/colors.dart';
 import 'package:flutter_fic9_ecommerce_app/common/constants/images.dart';
+import 'package:flutter_fic9_ecommerce_app/data/datasources/auth_local_datasource.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/requests/login_request_model.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/auth/blocs/login/login_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/auth/register_page.dart';
@@ -82,7 +83,8 @@ class _LoginPageState extends State<LoginPage> {
               state.maybeWhen(
                   orElse: () {},
                   success: (data) {
-                    Navigator.push(
+                    AuthLocalDatasource().saveAuthData(data);
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const DashboardPage()));

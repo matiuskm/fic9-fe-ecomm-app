@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:flutter_fic9_ecommerce_app/common/constants/variables.dart';
 import 'package:flutter_fic9_ecommerce_app/core.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/cart/blocs/cart/cart_bloc.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/cart/cart_page.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/banners/banners_bloc.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/categories/categories_bloc.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/products/products_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,12 +55,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> images = [
-      Images.banner1,
-      Images.banner2,
-      Images.banner3,
-    ];
-
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -94,17 +96,41 @@ class _HomePageState extends State<HomePage> {
               const Spacer(),
               Row(
                 children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SizedBox()),
-                      );
-                    },
-                    icon: Image.asset(
-                      Images.buyIcon,
-                      height: 24.0,
+                  badges.Badge(
+                    badgeContent: BlocBuilder<CartBloc, CartState>(
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                          orElse: () {
+                            return const Text(
+                              '0',
+                              style: TextStyle(color: Colors.white),
+                            );
+                          },
+                          loaded: (carts) {
+                            int totalQty = 0;
+                            for (var cart in carts) {
+                              totalQty += cart.qty;
+                            }
+                            return Text(
+                              totalQty.toString(),
+                              style: const TextStyle(color: Colors.white),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CartPage()),
+                        );
+                      },
+                      icon: Image.asset(
+                        Images.buyIcon,
+                        height: 24.0,
+                      ),
                     ),
                   ),
                   IconButton(
@@ -130,7 +156,28 @@ class _HomePageState extends State<HomePage> {
             onChanged: (keyword) {},
           ),
           const SpaceHeight(16.0),
-          ImageSlider(items: images),
+          BlocBuilder<BannersBloc, BannersState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+                loaded: (model) {
+                  return ImageSlider(
+                    items: [
+                      '${Variables.baseUrl}${model.data.first.attributes.gambar.data.attributes.url}'
+                    ],
+                    isAsset: false,
+                  );
+                },
+                error: (message) {
+                  return const Text('Gagal memuat data');
+                },
+              );
+            },
+          ),
           const SpaceHeight(12.0),
           const Text(
             'Kategori',
@@ -141,37 +188,34 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SpaceHeight(12.0),
-          Row(
-            children: [
-              Flexible(
-                child: CategoryButton(
-                  imagePath: Images.fruitsIcon,
-                  label: 'Buah',
-                  onPressed: () {},
+          BlocBuilder<CategoriesBloc, CategoriesState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () => const Center(
+                  child: CircularProgressIndicator(),
                 ),
-              ),
-              Flexible(
-                child: CategoryButton(
-                  imagePath: Images.vegetableIcon,
-                  label: 'Sayur',
-                  onPressed: () {},
-                ),
-              ),
-              Flexible(
-                child: CategoryButton(
-                  imagePath: Images.organicIcon,
-                  label: 'Organik',
-                  onPressed: () {},
-                ),
-              ),
-              Flexible(
-                child: CategoryButton(
-                  imagePath: Images.hydrophonicIcon,
-                  label: 'Hidroponik',
-                  onPressed: () {},
-                ),
-              ),
-            ],
+                loaded: (model) {
+                  return SizedBox(
+                    height: 125,
+                    child: ListView.builder(
+                      itemCount: model.data.length,
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      padding: EdgeInsets.zero,
+                      clipBehavior: Clip.none,
+                      itemBuilder: (context, index) {
+                        return CategoryButton(
+                          imagePath:
+                              '${Variables.baseUrl}${model.data[index].attributes.categoryIcon.data.attributes.url}',
+                          label: model.data[index].attributes.name,
+                          onPressed: () {},
+                        );
+                      },
+                    ),
+                  );
+                },
+              );
+            },
           ),
           const SpaceHeight(16.0),
           const Text(
@@ -183,18 +227,32 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SpaceHeight(8.0),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 55.0,
-            ),
-            itemCount: products.length,
-            itemBuilder: (context, index) => ProductCard(
-              data: products[index],
-            ),
+          BlocBuilder<ProductsBloc, ProductsState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+                loaded: (model) {
+                  return GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 55.0,
+                    ),
+                    itemCount: model.data.length,
+                    itemBuilder: (context, index) => ProductCard(
+                      data: model.data[index],
+                    ),
+                  );
+                },
+              );
+            },
           ),
         ],
       ),

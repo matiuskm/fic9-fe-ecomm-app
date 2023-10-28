@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fic9_ecommerce_app/common/constants/variables.dart';
 import 'package:flutter_fic9_ecommerce_app/core.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/responses/product_responses_model.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/product_detail/product_detail_page.dart';
 
 class ProductCard extends StatelessWidget {
-  final ProductModel data;
+  final Product data;
   const ProductCard({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ProductDetailPage(
+                    product: data,
+                  )),
+        );
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(6.0)),
@@ -24,8 +35,8 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              data.images.first,
+            Image.network(
+              '${Variables.baseUrl}${data.attributes.image.data.first.attributes.url}',
               width: 170.0,
               height: 112.0,
               fit: BoxFit.cover,
@@ -33,16 +44,16 @@ class ProductCard extends StatelessWidget {
             const SpaceHeight(14.0),
             Flexible(
               child: Text(
-                data.name,
+                data.attributes.name,
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
-            const SpaceHeight(4.0),
+            const SpaceHeight(10.0),
             Text(
-              data.priceFormat,
+              int.parse(data.attributes.price).currencyFormatIdr,
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,

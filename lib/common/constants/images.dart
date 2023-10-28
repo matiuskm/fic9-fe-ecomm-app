@@ -12,6 +12,8 @@ class Images {
   static const String vegetableIcon = 'assets/icons/vegetable.png';
   static const String organicIcon = 'assets/icons/organic.png';
   static const String hydrophonicIcon = 'assets/icons/hydrophonics.png';
+  
+  static const String trashIcon = 'assets/icons/trash-can.png';
 
   static const String banner1 = 'assets/images/banner1.jpg';
   static const String banner2 = 'assets/images/banner2.jpg';
