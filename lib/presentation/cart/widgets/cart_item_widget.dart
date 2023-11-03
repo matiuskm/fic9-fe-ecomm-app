@@ -28,7 +28,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
           ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(5.0)),
             child: Image.network(
-              '${Variables.baseUrl}${widget.data.product.attributes.image.data.first.attributes.url}',
+              '${Variables.baseUrl}${widget.data.product.attributes.images.data.first.attributes.url}',
               width: 72.0,
               height: 72.0,
               fit: BoxFit.cover,
@@ -53,7 +53,13 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        if (widget.data.qty > 0) {
+                          context
+                              .read<CartBloc>()
+                              .add(CartEvent.remove(widget.data, true));
+                        }
+                      },
                       child: const ImageIcon(
                         AssetImage(local_images.Images.trashIcon),
                         size: 24.0,
@@ -88,7 +94,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                               if (widget.data.qty > 0) {
                                 context
                                     .read<CartBloc>()
-                                    .add(CartEvent.remove(widget.data));
+                                    .add(CartEvent.remove(widget.data, false));
                               }
                             },
                             child: Container(

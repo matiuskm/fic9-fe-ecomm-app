@@ -4,5 +4,5 @@ part of 'cart_bloc.dart';
 class CartEvent with _$CartEvent {
   const factory CartEvent.started() = _Started;
   const factory CartEvent.add(CartModel cart) = _Add;
-  const factory CartEvent.remove(CartModel cart) = _Remove;
+  const factory CartEvent.remove(CartModel cart, bool removeAll) = _Remove;
 }

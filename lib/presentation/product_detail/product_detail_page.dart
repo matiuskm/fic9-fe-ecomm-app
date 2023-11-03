@@ -30,9 +30,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         children: [
           ImageSlider(
             items: [
-              '${Variables.baseUrl}${widget.product.attributes.image.data.first.attributes.url}',
+              '${Variables.baseUrl}${widget.product.attributes.images.data.first.attributes.url}',
             ],
-            isAsset: false,
           ),
           const SpaceHeight(16.0),
           ProductInfoWidget(

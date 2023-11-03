@@ -21,30 +21,31 @@ class ProductCard extends StatelessWidget {
         );
       },
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-          boxShadow: [
-            BoxShadow(
-              color: ColorName.black.withOpacity(0.05),
-              blurRadius: 7.0,
-              spreadRadius: 0,
-              offset: const Offset(0, 4),
-            ),
-          ],
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(6.0)),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: ColorName.black.withOpacity(0.05),
+          //     blurRadius: 7.0,
+          //     spreadRadius: 0,
+          //     offset: const Offset(0, 4),
+          //   ),
+          // ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
-              '${Variables.baseUrl}${data.attributes.image.data.first.attributes.url}',
+              '${Variables.baseUrl}${data.attributes.images.data.first.attributes.url}',
               width: 170.0,
               height: 112.0,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
             const SpaceHeight(14.0),
             Flexible(
               child: Text(
                 data.attributes.name,
+                maxLines: 2,
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,

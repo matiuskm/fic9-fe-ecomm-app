@@ -165,11 +165,15 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
                 loaded: (model) {
+                  List<String> bannerImages = [];
+                  for (var e in model.data) {
+                    bannerImages = [
+                      ...bannerImages,
+                      '${Variables.baseUrl}${e.attributes.gambar.data.attributes.url}'
+                    ];
+                  }
                   return ImageSlider(
-                    items: [
-                      '${Variables.baseUrl}${model.data.first.attributes.gambar.data.attributes.url}'
-                    ],
-                    isAsset: false,
+                    items: bannerImages,
                   );
                 },
                 error: (message) {

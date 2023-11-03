@@ -8,6 +8,8 @@ import 'package:flutter_fic9_ecommerce_app/presentation/cart/blocs/cart/cart_blo
 import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/banners/banners_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/categories/categories_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/products/products_bloc.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/order/bloc/order/order_bloc.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/order/bloc/order_detail/order_detail_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +42,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CartBloc(),
+        ),
+        BlocProvider(
+          create: (context) => OrderBloc(),
+        ),
+        BlocProvider(
+          create: (context) => OrderDetailBloc(),
         ),
       ],
       child: MaterialApp(

@@ -26,6 +26,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "awesome_dialog",
+      "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/awesome_dialog-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "badges",
       "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/badges-3.1.2",
       "packageUri": "lib/",
@@ -392,6 +398,18 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "rive",
+      "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/rive-0.11.17",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "rive_common",
+      "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/rive_common-0.2.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "shared_preferences",
       "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/shared_preferences-2.2.2",
       "packageUri": "lib/",
@@ -536,6 +554,30 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/webview_flutter-4.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "webview_flutter_android",
+      "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/webview_flutter_android-3.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "webview_flutter_platform_interface",
+      "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "webview_flutter_wkwebview",
+      "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.9.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "win32",
       "rootUri": "file:///Users/lazycoder/.pub-cache/hosted/pub.dev/win32-5.0.9",
       "packageUri": "lib/",
@@ -560,7 +602,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-28T13:02:10.600999Z",
+  "generated": "2023-10-30T01:06:22.133004Z",
   "generator": "pub",
   "generatorVersion": "3.1.3"
 }

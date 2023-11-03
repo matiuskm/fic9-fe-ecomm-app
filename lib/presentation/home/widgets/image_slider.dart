@@ -4,8 +4,7 @@ import 'package:flutter_fic9_ecommerce_app/core.dart';
 
 class ImageSlider extends StatefulWidget {
   final List<String> items;
-  final bool isAsset;
-  const ImageSlider({super.key, required this.items, required this.isAsset});
+  const ImageSlider({super.key, required this.items});
 
   @override
   State<ImageSlider> createState() => _ImageSliderState();
@@ -20,24 +19,17 @@ class _ImageSliderState extends State<ImageSlider> {
     return Column(
       children: [
         CarouselSlider(
-          items: widget.isAsset ? widget.items
-              .map((e) => Image.asset(
+          items: widget.items
+              .map((e) => Image.network(
                     e,
                     height: 206.0,
                     width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.cover,
-                  ))
-              .toList() :
-              widget.items.map((e) => Image.network(
-                    e,
-                    height: 206.0,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                   ))
               .toList(),
           carouselController: _controller,
           options: CarouselOptions(
-            autoPlay: true,
+            autoPlay: (widget.items.length > 1) ? true : false,
             aspectRatio: 343 / 206,
             viewportFraction: 1,
             onPageChanged: (index, reason) {

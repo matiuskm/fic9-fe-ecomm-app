@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/data/datasources/auth_remote_datasource.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/requests/login_request_model.dart';
-import 'package:flutter_fic9_ecommerce_app/data/models/responses/auth_response.model.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/responses/auth_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_event.dart';

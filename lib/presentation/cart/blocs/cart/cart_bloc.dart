@@ -28,13 +28,21 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       if (index >= 0) {
         currentState.carts[index].qty -= 1;
 
-        if (currentState.carts[index].qty <= 0) {
-          currentState.carts.removeAt(index);
+        if (event.removeAll || currentState.carts[index].qty <= 0) {
+          final cartList = currentState.carts.toList();
+          cartList.remove(event.cart);
+          emit(const _Loading());
+          emit(_Loaded(cartList));
+        } else {
+          emit(const _Loading());
+          emit(_Loaded(currentState.carts));
         }
-
-        emit(const _Loading());
-        emit(_Loaded(currentState.carts));
       }
+    });
+
+    on<_Started>((event, emit) {
+      emit(const _Loading());
+      emit(const _Loaded([]));
     });
   }
 }

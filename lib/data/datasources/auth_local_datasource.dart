@@ -1,5 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_fic9_ecommerce_app/data/models/responses/auth_response.model.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/responses/auth_response_model.dart';
 
 class AuthLocalDatasource {
   Future<void> saveAuthData(AuthResponseModel model) async {
