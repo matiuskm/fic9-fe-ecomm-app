@@ -20,12 +20,14 @@ class _ImageSliderState extends State<ImageSlider> {
       children: [
         CarouselSlider(
           items: widget.items
-              .map((e) => Image.network(
-                    e,
-                    height: 206.0,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.contain,
-                  ))
+              .map(
+                (e) => Image.network(
+                  e,
+                  height: 206.0,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                ),
+              )
               .toList(),
           carouselController: _controller,
           options: CarouselOptions(

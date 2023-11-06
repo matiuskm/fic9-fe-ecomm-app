@@ -31,6 +31,7 @@ class RowText extends StatelessWidget {
         Flexible(
           child: Text(
             value,
+            textAlign: TextAlign.right,
             style: TextStyle(
               fontSize: 12,
               fontWeight: fontWeight,

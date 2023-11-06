@@ -4,6 +4,7 @@ class ColorName {
   static const Color white = Color(0xffFFFFFF);
   static const Color black = Color(0xff000000);
   static const Color primary = Color(0xff35155D);
+  static const Color primaryAccent = Color(0x4835155D);
   static const Color light = Color(0xffF6F6FD);
   static const Color dark = Color(0xff393F42);
   static const Color red = Color(0xffFB7181);

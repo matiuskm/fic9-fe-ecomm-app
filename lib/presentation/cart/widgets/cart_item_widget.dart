@@ -45,6 +45,8 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     Flexible(
                       child: Text(
                         widget.data.product.attributes.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
@@ -72,14 +74,10 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      int.parse(widget.data.product.attributes.price)
-                          .currencyFormatIdr,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: ColorName.primary,
-                      ),
-                    ),
+                        int.parse(widget.data.product.attributes.price)
+                            .currencyFormatIdr,
+                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                            fontWeight: FontWeight.bold, color: Colors.orange)),
                     const Spacer(),
                     Container(
                       padding: const EdgeInsets.all(1.0),

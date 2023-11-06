@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/common/constants/variables.dart';
 import 'package:flutter_fic9_ecommerce_app/core.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/product_responses_model.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/cart/blocs/cart/cart_bloc.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/cart/widgets/cart_model.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/product_detail/product_detail_page.dart';
 
 class ProductCard extends StatelessWidget {
@@ -20,45 +23,57 @@ class ProductCard extends StatelessWidget {
                   )),
         );
       },
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(6.0)),
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: ColorName.black.withOpacity(0.05),
-          //     blurRadius: 7.0,
-          //     spreadRadius: 0,
-          //     offset: const Offset(0, 4),
-          //   ),
-          // ],
-        ),
+      child: SizedBox(
+        width: 150,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              '${Variables.baseUrl}${data.attributes.images.data.first.attributes.url}',
-              width: 170.0,
-              height: 112.0,
-              fit: BoxFit.contain,
+            Stack(
+              alignment: AlignmentDirectional.bottomStart,
+              children: [
+                SizedBox(
+                    height: 100,
+                    width: MediaQuery.of(context).size.width,
+                    child: Image.network(
+                        '${Variables.baseUrl}${data.attributes.images.data.first.attributes.url}',
+                        alignment: Alignment.center,
+                        fit: BoxFit.contain)),
+              ],
             ),
-            const SpaceHeight(14.0),
-            Flexible(
+            const SizedBox(height: 8),
+            SizedBox(
               child: Text(
                 data.attributes.name,
-                maxLines: 2,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
               ),
             ),
-            const SpaceHeight(10.0),
-            Text(
-              int.parse(data.attributes.price).currencyFormatIdr,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  int.parse(data.attributes.price).currencyFormatIdr,
+                  maxLines: 1,
+                  overflow: TextOverflow.clip,
+                  softWrap: false,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    context
+                        .read<CartBloc>()
+                        .add(CartEvent.add(CartModel(product: data, qty: 1)));
+                  },
+                  icon: const Icon(
+                    Icons.add_circle_rounded,
+                    color: ColorName.primary,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
