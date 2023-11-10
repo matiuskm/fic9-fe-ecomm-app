@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_fic9_ecommerce_app/core.dart';
 
@@ -20,31 +22,23 @@ class CustomDropdown<T> extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        const SpaceHeight(12.0),
-        DropdownButtonFormField<T>(
-          value: value,
-          onChanged: onChanged,
-          items: items.map((T item) {
-            return DropdownMenuItem<T>(
-              value: item,
-              child: Text(item!.toString()),
-            );
-          }).toList(),
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(6.0),
-              borderSide: const BorderSide(color: Colors.grey),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(6.0),
-              borderSide: const BorderSide(color: Colors.grey),
+        DropdownButtonHideUnderline(
+          child: DropdownButtonFormField<T>(
+            value: value,
+            onChanged: onChanged,
+            isExpanded: true,
+            items: items.map((T item) {
+              return DropdownMenuItem<T>(
+                value: item,
+                child: Text(item!.toString()),
+              );
+            }).toList(),
+            hint: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
         ),

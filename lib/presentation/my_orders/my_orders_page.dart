@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/core.dart';
-import 'package:flutter_fic9_ecommerce_app/data/models/responses/my_orders_responses_model.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/my_orders/blocs/my_order/my_order_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/my_orders/widgets/my_order_card.dart';
 
@@ -68,7 +66,7 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
 
   Future<void> refreshdata() async {
     await Future.delayed(const Duration(seconds: 1));
-    context.read<MyOrderBloc>().add(const MyOrderEvent.getMyOrder());
+    if (context.mounted) context.read<MyOrderBloc>().add(const MyOrderEvent.getMyOrder());
     setState(() {});
   }
 }

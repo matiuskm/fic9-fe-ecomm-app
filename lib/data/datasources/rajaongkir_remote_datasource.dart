@@ -3,6 +3,7 @@ import 'package:flutter_fic9_ecommerce_app/common/constants/variables.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/city_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/cost_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/province_response_model.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/responses/single_province_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/subdistrict_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/waybill_failed_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/waybill_success_response_model.dart';
@@ -103,6 +104,19 @@ class RajaOngkirRemoteDatasource {
       return right(WaybillSuccessResponseModel.fromJson(response.body));
     } else {
       return left(WaybillFailedResponseModel.fromJson(response.body));
+    }
+  }
+
+  Future<Either<String, SingleProvinceResponseModel>> getProvinceById(
+      int provinceId) async {
+    final url = Uri.parse('${Variables.roBaseUrl}/province?id=$provinceId');
+    final response = await http.post(url, headers: {
+      'key': Variables.roApiKey,
+    });
+    if (response.statusCode == 200) {
+      return right(SingleProvinceResponseModel.fromJson(response.body));
+    } else {
+      return left('Error');
     }
   }
 }

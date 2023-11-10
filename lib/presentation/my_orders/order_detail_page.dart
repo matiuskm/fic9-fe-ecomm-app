@@ -25,10 +25,10 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
     int totalItem = 0;
     int item = 0;
     List<String> status = [];
-    widget.myOrder.attributes.items.forEach((e) {
+    for(var e in widget.myOrder.attributes.items) {
       totalItem += e.qty * e.price;
       item += e.qty;
-    });
+    }
     if (widget.myOrder.attributes.status == 'processing') status = ['Dikemas'];
     if (widget.myOrder.attributes.status == 'shipped') {
       status = ['Dikemas', 'Dikirim'];

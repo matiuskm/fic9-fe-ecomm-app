@@ -31,8 +31,25 @@ mixin _$AddAddressEvent {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)
+            bool isDefault,
+            String label)
         addAddress,
+    required TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)
+        updateAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,8 +67,25 @@ mixin _$AddAddressEvent {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)?
+            bool isDefault,
+            String label)?
         addAddress,
+    TResult? Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,8 +103,25 @@ mixin _$AddAddressEvent {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)?
+            bool isDefault,
+            String label)?
         addAddress,
+    TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,18 +129,21 @@ mixin _$AddAddressEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_AddAddress value) addAddress,
+    required TResult Function(_UpdateAddress value) updateAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_AddAddress value)? addAddress,
+    TResult? Function(_UpdateAddress value)? updateAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_AddAddress value)? addAddress,
+    TResult Function(_UpdateAddress value)? updateAddress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -164,8 +218,25 @@ class _$StartedImpl implements _Started {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)
+            bool isDefault,
+            String label)
         addAddress,
+    required TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)
+        updateAddress,
   }) {
     return started();
   }
@@ -186,8 +257,25 @@ class _$StartedImpl implements _Started {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)?
+            bool isDefault,
+            String label)?
         addAddress,
+    TResult? Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
   }) {
     return started?.call();
   }
@@ -208,8 +296,25 @@ class _$StartedImpl implements _Started {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)?
+            bool isDefault,
+            String label)?
         addAddress,
+    TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -223,6 +328,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_AddAddress value) addAddress,
+    required TResult Function(_UpdateAddress value) updateAddress,
   }) {
     return started(this);
   }
@@ -232,6 +338,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_AddAddress value)? addAddress,
+    TResult? Function(_UpdateAddress value)? updateAddress,
   }) {
     return started?.call(this);
   }
@@ -241,6 +348,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_AddAddress value)? addAddress,
+    TResult Function(_UpdateAddress value)? updateAddress,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -272,7 +380,8 @@ abstract class _$$AddAddressImplCopyWith<$Res> {
       String subdistrictName,
       String zipcode,
       int userId,
-      bool isDefault});
+      bool isDefault,
+      String label});
 }
 
 /// @nodoc
@@ -298,6 +407,7 @@ class __$$AddAddressImplCopyWithImpl<$Res>
     Object? zipcode = null,
     Object? userId = null,
     Object? isDefault = null,
+    Object? label = null,
   }) {
     return _then(_$AddAddressImpl(
       name: null == name
@@ -348,6 +458,10 @@ class __$$AddAddressImplCopyWithImpl<$Res>
           ? _value.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
               as bool,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -367,7 +481,8 @@ class _$AddAddressImpl implements _AddAddress {
       required this.subdistrictName,
       required this.zipcode,
       required this.userId,
-      required this.isDefault});
+      required this.isDefault,
+      required this.label});
 
   @override
   final String name;
@@ -393,10 +508,12 @@ class _$AddAddressImpl implements _AddAddress {
   final int userId;
   @override
   final bool isDefault;
+  @override
+  final String label;
 
   @override
   String toString() {
-    return 'AddAddressEvent.addAddress(name: $name, street: $street, phone: $phone, provinceId: $provinceId, cityId: $cityId, subdistrictId: $subdistrictId, provinceName: $provinceName, cityName: $cityName, subdistrictName: $subdistrictName, zipcode: $zipcode, userId: $userId, isDefault: $isDefault)';
+    return 'AddAddressEvent.addAddress(name: $name, street: $street, phone: $phone, provinceId: $provinceId, cityId: $cityId, subdistrictId: $subdistrictId, provinceName: $provinceName, cityName: $cityName, subdistrictName: $subdistrictName, zipcode: $zipcode, userId: $userId, isDefault: $isDefault, label: $label)';
   }
 
   @override
@@ -421,7 +538,8 @@ class _$AddAddressImpl implements _AddAddress {
             (identical(other.zipcode, zipcode) || other.zipcode == zipcode) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.isDefault, isDefault) ||
-                other.isDefault == isDefault));
+                other.isDefault == isDefault) &&
+            (identical(other.label, label) || other.label == label));
   }
 
   @override
@@ -438,7 +556,8 @@ class _$AddAddressImpl implements _AddAddress {
       subdistrictName,
       zipcode,
       userId,
-      isDefault);
+      isDefault,
+      label);
 
   @JsonKey(ignore: true)
   @override
@@ -462,11 +581,40 @@ class _$AddAddressImpl implements _AddAddress {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)
+            bool isDefault,
+            String label)
         addAddress,
+    required TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)
+        updateAddress,
   }) {
-    return addAddress(name, street, phone, provinceId, cityId, subdistrictId,
-        provinceName, cityName, subdistrictName, zipcode, userId, isDefault);
+    return addAddress(
+        name,
+        street,
+        phone,
+        provinceId,
+        cityId,
+        subdistrictId,
+        provinceName,
+        cityName,
+        subdistrictName,
+        zipcode,
+        userId,
+        isDefault,
+        label);
   }
 
   @override
@@ -485,8 +633,25 @@ class _$AddAddressImpl implements _AddAddress {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)?
+            bool isDefault,
+            String label)?
         addAddress,
+    TResult? Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
   }) {
     return addAddress?.call(
         name,
@@ -500,7 +665,8 @@ class _$AddAddressImpl implements _AddAddress {
         subdistrictName,
         zipcode,
         userId,
-        isDefault);
+        isDefault,
+        label);
   }
 
   @override
@@ -519,13 +685,42 @@ class _$AddAddressImpl implements _AddAddress {
             String subdistrictName,
             String zipcode,
             int userId,
-            bool isDefault)?
+            bool isDefault,
+            String label)?
         addAddress,
+    TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
     required TResult orElse(),
   }) {
     if (addAddress != null) {
-      return addAddress(name, street, phone, provinceId, cityId, subdistrictId,
-          provinceName, cityName, subdistrictName, zipcode, userId, isDefault);
+      return addAddress(
+          name,
+          street,
+          phone,
+          provinceId,
+          cityId,
+          subdistrictId,
+          provinceName,
+          cityName,
+          subdistrictName,
+          zipcode,
+          userId,
+          isDefault,
+          label);
     }
     return orElse();
   }
@@ -535,6 +730,7 @@ class _$AddAddressImpl implements _AddAddress {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_AddAddress value) addAddress,
+    required TResult Function(_UpdateAddress value) updateAddress,
   }) {
     return addAddress(this);
   }
@@ -544,6 +740,7 @@ class _$AddAddressImpl implements _AddAddress {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_AddAddress value)? addAddress,
+    TResult? Function(_UpdateAddress value)? updateAddress,
   }) {
     return addAddress?.call(this);
   }
@@ -553,6 +750,7 @@ class _$AddAddressImpl implements _AddAddress {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_AddAddress value)? addAddress,
+    TResult Function(_UpdateAddress value)? updateAddress,
     required TResult orElse(),
   }) {
     if (addAddress != null) {
@@ -575,7 +773,8 @@ abstract class _AddAddress implements AddAddressEvent {
       required final String subdistrictName,
       required final String zipcode,
       required final int userId,
-      required final bool isDefault}) = _$AddAddressImpl;
+      required final bool isDefault,
+      required final String label}) = _$AddAddressImpl;
 
   String get name;
   String get street;
@@ -589,8 +788,457 @@ abstract class _AddAddress implements AddAddressEvent {
   String get zipcode;
   int get userId;
   bool get isDefault;
+  String get label;
   @JsonKey(ignore: true)
   _$$AddAddressImplCopyWith<_$AddAddressImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateAddressImplCopyWith<$Res> {
+  factory _$$UpdateAddressImplCopyWith(
+          _$UpdateAddressImpl value, $Res Function(_$UpdateAddressImpl) then) =
+      __$$UpdateAddressImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String id,
+      String name,
+      String street,
+      String phone,
+      String provinceId,
+      String cityId,
+      String subdistrictId,
+      String provinceName,
+      String cityName,
+      String subdistrictName,
+      String zipcode,
+      int userId,
+      bool isDefault,
+      String label});
+}
+
+/// @nodoc
+class __$$UpdateAddressImplCopyWithImpl<$Res>
+    extends _$AddAddressEventCopyWithImpl<$Res, _$UpdateAddressImpl>
+    implements _$$UpdateAddressImplCopyWith<$Res> {
+  __$$UpdateAddressImplCopyWithImpl(
+      _$UpdateAddressImpl _value, $Res Function(_$UpdateAddressImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? street = null,
+    Object? phone = null,
+    Object? provinceId = null,
+    Object? cityId = null,
+    Object? subdistrictId = null,
+    Object? provinceName = null,
+    Object? cityName = null,
+    Object? subdistrictName = null,
+    Object? zipcode = null,
+    Object? userId = null,
+    Object? isDefault = null,
+    Object? label = null,
+  }) {
+    return _then(_$UpdateAddressImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      street: null == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      provinceId: null == provinceId
+          ? _value.provinceId
+          : provinceId // ignore: cast_nullable_to_non_nullable
+              as String,
+      cityId: null == cityId
+          ? _value.cityId
+          : cityId // ignore: cast_nullable_to_non_nullable
+              as String,
+      subdistrictId: null == subdistrictId
+          ? _value.subdistrictId
+          : subdistrictId // ignore: cast_nullable_to_non_nullable
+              as String,
+      provinceName: null == provinceName
+          ? _value.provinceName
+          : provinceName // ignore: cast_nullable_to_non_nullable
+              as String,
+      cityName: null == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+      subdistrictName: null == subdistrictName
+          ? _value.subdistrictName
+          : subdistrictName // ignore: cast_nullable_to_non_nullable
+              as String,
+      zipcode: null == zipcode
+          ? _value.zipcode
+          : zipcode // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateAddressImpl implements _UpdateAddress {
+  const _$UpdateAddressImpl(
+      {required this.id,
+      required this.name,
+      required this.street,
+      required this.phone,
+      required this.provinceId,
+      required this.cityId,
+      required this.subdistrictId,
+      required this.provinceName,
+      required this.cityName,
+      required this.subdistrictName,
+      required this.zipcode,
+      required this.userId,
+      required this.isDefault,
+      required this.label});
+
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final String street;
+  @override
+  final String phone;
+  @override
+  final String provinceId;
+  @override
+  final String cityId;
+  @override
+  final String subdistrictId;
+  @override
+  final String provinceName;
+  @override
+  final String cityName;
+  @override
+  final String subdistrictName;
+  @override
+  final String zipcode;
+  @override
+  final int userId;
+  @override
+  final bool isDefault;
+  @override
+  final String label;
+
+  @override
+  String toString() {
+    return 'AddAddressEvent.updateAddress(id: $id, name: $name, street: $street, phone: $phone, provinceId: $provinceId, cityId: $cityId, subdistrictId: $subdistrictId, provinceName: $provinceName, cityName: $cityName, subdistrictName: $subdistrictName, zipcode: $zipcode, userId: $userId, isDefault: $isDefault, label: $label)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateAddressImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.provinceId, provinceId) ||
+                other.provinceId == provinceId) &&
+            (identical(other.cityId, cityId) || other.cityId == cityId) &&
+            (identical(other.subdistrictId, subdistrictId) ||
+                other.subdistrictId == subdistrictId) &&
+            (identical(other.provinceName, provinceName) ||
+                other.provinceName == provinceName) &&
+            (identical(other.cityName, cityName) ||
+                other.cityName == cityName) &&
+            (identical(other.subdistrictName, subdistrictName) ||
+                other.subdistrictName == subdistrictName) &&
+            (identical(other.zipcode, zipcode) || other.zipcode == zipcode) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault) &&
+            (identical(other.label, label) || other.label == label));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      street,
+      phone,
+      provinceId,
+      cityId,
+      subdistrictId,
+      provinceName,
+      cityName,
+      subdistrictName,
+      zipcode,
+      userId,
+      isDefault,
+      label);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateAddressImplCopyWith<_$UpdateAddressImpl> get copyWith =>
+      __$$UpdateAddressImplCopyWithImpl<_$UpdateAddressImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)
+        addAddress,
+    required TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)
+        updateAddress,
+  }) {
+    return updateAddress(
+        id,
+        name,
+        street,
+        phone,
+        provinceId,
+        cityId,
+        subdistrictId,
+        provinceName,
+        cityName,
+        subdistrictName,
+        zipcode,
+        userId,
+        isDefault,
+        label);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        addAddress,
+    TResult? Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
+  }) {
+    return updateAddress?.call(
+        id,
+        name,
+        street,
+        phone,
+        provinceId,
+        cityId,
+        subdistrictId,
+        provinceName,
+        cityName,
+        subdistrictName,
+        zipcode,
+        userId,
+        isDefault,
+        label);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        addAddress,
+    TResult Function(
+            String id,
+            String name,
+            String street,
+            String phone,
+            String provinceId,
+            String cityId,
+            String subdistrictId,
+            String provinceName,
+            String cityName,
+            String subdistrictName,
+            String zipcode,
+            int userId,
+            bool isDefault,
+            String label)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (updateAddress != null) {
+      return updateAddress(
+          id,
+          name,
+          street,
+          phone,
+          provinceId,
+          cityId,
+          subdistrictId,
+          provinceName,
+          cityName,
+          subdistrictName,
+          zipcode,
+          userId,
+          isDefault,
+          label);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddAddress value) addAddress,
+    required TResult Function(_UpdateAddress value) updateAddress,
+  }) {
+    return updateAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddAddress value)? addAddress,
+    TResult? Function(_UpdateAddress value)? updateAddress,
+  }) {
+    return updateAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddAddress value)? addAddress,
+    TResult Function(_UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (updateAddress != null) {
+      return updateAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateAddress implements AddAddressEvent {
+  const factory _UpdateAddress(
+      {required final String id,
+      required final String name,
+      required final String street,
+      required final String phone,
+      required final String provinceId,
+      required final String cityId,
+      required final String subdistrictId,
+      required final String provinceName,
+      required final String cityName,
+      required final String subdistrictName,
+      required final String zipcode,
+      required final int userId,
+      required final bool isDefault,
+      required final String label}) = _$UpdateAddressImpl;
+
+  String get id;
+  String get name;
+  String get street;
+  String get phone;
+  String get provinceId;
+  String get cityId;
+  String get subdistrictId;
+  String get provinceName;
+  String get cityName;
+  String get subdistrictName;
+  String get zipcode;
+  int get userId;
+  bool get isDefault;
+  String get label;
+  @JsonKey(ignore: true)
+  _$$UpdateAddressImplCopyWith<_$UpdateAddressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -601,6 +1249,7 @@ mixin _$AddAddressState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddAddressResponseModel model) success,
+    required TResult Function(AddAddressResponseModel model) update,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -609,6 +1258,7 @@ mixin _$AddAddressState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddAddressResponseModel model)? success,
+    TResult? Function(AddAddressResponseModel model)? update,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -617,6 +1267,7 @@ mixin _$AddAddressState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddAddressResponseModel model)? success,
+    TResult Function(AddAddressResponseModel model)? update,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -626,6 +1277,7 @@ mixin _$AddAddressState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_Update value) update,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -634,6 +1286,7 @@ mixin _$AddAddressState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Update value)? update,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -642,6 +1295,7 @@ mixin _$AddAddressState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_Update value)? update,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -707,6 +1361,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddAddressResponseModel model) success,
+    required TResult Function(AddAddressResponseModel model) update,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -718,6 +1373,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddAddressResponseModel model)? success,
+    TResult? Function(AddAddressResponseModel model)? update,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -729,6 +1385,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddAddressResponseModel model)? success,
+    TResult Function(AddAddressResponseModel model)? update,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -744,6 +1401,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_Update value) update,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -755,6 +1413,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Update value)? update,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -766,6 +1425,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_Update value)? update,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -821,6 +1481,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddAddressResponseModel model) success,
+    required TResult Function(AddAddressResponseModel model) update,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -832,6 +1493,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddAddressResponseModel model)? success,
+    TResult? Function(AddAddressResponseModel model)? update,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -843,6 +1505,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddAddressResponseModel model)? success,
+    TResult Function(AddAddressResponseModel model)? update,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -858,6 +1521,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_Update value) update,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -869,6 +1533,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Update value)? update,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -880,6 +1545,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_Update value)? update,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -961,6 +1627,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddAddressResponseModel model) success,
+    required TResult Function(AddAddressResponseModel model) update,
     required TResult Function(String message) error,
   }) {
     return success(model);
@@ -972,6 +1639,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddAddressResponseModel model)? success,
+    TResult? Function(AddAddressResponseModel model)? update,
     TResult? Function(String message)? error,
   }) {
     return success?.call(model);
@@ -983,6 +1651,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddAddressResponseModel model)? success,
+    TResult Function(AddAddressResponseModel model)? update,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -998,6 +1667,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_Update value) update,
     required TResult Function(_Error value) error,
   }) {
     return success(this);
@@ -1009,6 +1679,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Update value)? update,
     TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
@@ -1020,6 +1691,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_Update value)? update,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -1036,6 +1708,157 @@ abstract class _Success implements AddAddressState {
   AddAddressResponseModel get model;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateImplCopyWith<$Res> {
+  factory _$$UpdateImplCopyWith(
+          _$UpdateImpl value, $Res Function(_$UpdateImpl) then) =
+      __$$UpdateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AddAddressResponseModel model});
+}
+
+/// @nodoc
+class __$$UpdateImplCopyWithImpl<$Res>
+    extends _$AddAddressStateCopyWithImpl<$Res, _$UpdateImpl>
+    implements _$$UpdateImplCopyWith<$Res> {
+  __$$UpdateImplCopyWithImpl(
+      _$UpdateImpl _value, $Res Function(_$UpdateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? model = null,
+  }) {
+    return _then(_$UpdateImpl(
+      null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as AddAddressResponseModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateImpl implements _Update {
+  const _$UpdateImpl(this.model);
+
+  @override
+  final AddAddressResponseModel model;
+
+  @override
+  String toString() {
+    return 'AddAddressState.update(model: $model)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateImpl &&
+            (identical(other.model, model) || other.model == model));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, model);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>
+      __$$UpdateImplCopyWithImpl<_$UpdateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AddAddressResponseModel model) success,
+    required TResult Function(AddAddressResponseModel model) update,
+    required TResult Function(String message) error,
+  }) {
+    return update(model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AddAddressResponseModel model)? success,
+    TResult? Function(AddAddressResponseModel model)? update,
+    TResult? Function(String message)? error,
+  }) {
+    return update?.call(model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AddAddressResponseModel model)? success,
+    TResult Function(AddAddressResponseModel model)? update,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(model);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Update value) update,
+    required TResult Function(_Error value) error,
+  }) {
+    return update(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Update value)? update,
+    TResult? Function(_Error value)? error,
+  }) {
+    return update?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Update value)? update,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Update implements AddAddressState {
+  const factory _Update(final AddAddressResponseModel model) = _$UpdateImpl;
+
+  AddAddressResponseModel get model;
+  @JsonKey(ignore: true)
+  _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1106,6 +1929,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddAddressResponseModel model) success,
+    required TResult Function(AddAddressResponseModel model) update,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1117,6 +1941,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddAddressResponseModel model)? success,
+    TResult? Function(AddAddressResponseModel model)? update,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1128,6 +1953,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddAddressResponseModel model)? success,
+    TResult Function(AddAddressResponseModel model)? update,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1143,6 +1969,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_Update value) update,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -1154,6 +1981,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Update value)? update,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -1165,6 +1993,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_Update value)? update,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

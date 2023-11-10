@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/data/datasources/rajaongkir_remote_datasource.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/cost_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

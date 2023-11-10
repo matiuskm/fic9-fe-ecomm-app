@@ -1,5 +1,7 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/data/datasources/order_remote_datasource.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/requests/default_address_request_model.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/responses/add_address_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/get_address_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/single_address_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -21,11 +23,21 @@ class GetAddressBloc extends Bloc<GetAddressEvent, GetAddressState> {
 
     on<_DeleteAddress>((event, emit) async {
       emit(const _Loading());
-      final response = await OrderRemoteDatasource().deleteAddress(event.addressId);
+      final response =
+          await OrderRemoteDatasource().deleteAddress(event.addressId);
       response.fold(
         (l) => emit(_Error(l)),
         (r) => emit(_Deleted(r)),
       );
+      add(const _GetAddress());
+    });
+
+    on<_SetAsDefaultAddress>((event, emit) async {
+      emit(const _Loading());
+      final response = await OrderRemoteDatasource()
+          .setAsDefaultAddress(event.addressId, event.data);
+      response.fold((l) => emit(_Error(l)), (r) => emit(_SetDefault(r)));
+      add(const _GetAddress());
     });
   }
 }

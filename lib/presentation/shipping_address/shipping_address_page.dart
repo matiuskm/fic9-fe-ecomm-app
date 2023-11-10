@@ -47,6 +47,12 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                     .read<GetAddressBloc>()
                     .add(const GetAddressEvent.getAddress());
                 setState(() {});
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Alamat baru sudah ditambahkan.'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
               });
             },
             icon: const Icon(Icons.add),
@@ -84,7 +90,18 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                           data: addresses[index],
                         ),
                       ),
-                    );
+                    ).then((value) {
+                      context
+                          .read<GetAddressBloc>()
+                          .add(const GetAddressEvent.getAddress());
+                      setState(() {});
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Alamat berhasil diupdate.'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                    });
                   },
                   onDeleteTap: () {
                     showDialog(
@@ -99,11 +116,8 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                   context.read<GetAddressBloc>().add(
                                       GetAddressEvent.deleteAddress(
                                           addresses[index].id));
-
-                                  context
-                                      .read<GetAddressBloc>()
-                                      .add(const GetAddressEvent.getAddress());
                                   Navigator.of(context).pop();
+                                  selectedAddress = null;
                                 },
                                 child: const Text('Ya'),
                               ),
@@ -131,14 +145,10 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Button.filled(
-          disabled: selectedAddress == null,
+          disabled:
+              selectedAddress == null || selectedAddress!.attributes.isDefault,
           onPressed: () {
             Navigator.pop(context, selectedAddress);
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //       builder: (context) => const OrderDetailPage()),
-            // );
           },
           label: 'Pilih',
         ),

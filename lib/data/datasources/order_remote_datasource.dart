@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_fic9_ecommerce_app/common/constants/variables.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/requests/add_address_request_model.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/requests/default_address_request_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/add_address_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/get_address_response_model.dart';
 import 'package:flutter_fic9_ecommerce_app/data/models/responses/my_orders_responses_model.dart';
@@ -84,6 +85,48 @@ class OrderRemoteDatasource {
 
     final response = await http.post(
       Uri.parse('${Variables.baseUrl}/api/addresses'),
+      headers: headers,
+      body: req.toJson(),
+    );
+
+    if (response.statusCode == 200) {
+      return right(AddAddressResponseModel.fromJson(response.body));
+    } else {
+      return left('Terjadi kesalahan. Silakan coba lagi.');
+    }
+  }
+
+  Future<Either<String, AddAddressResponseModel>> updateAddress(
+      String id, AddAddressRequestModel req) async {
+    final token = await AuthLocalDatasource().getToken();
+    final headers = <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final response = await http.put(
+      Uri.parse('${Variables.baseUrl}/api/addresses/$id'),
+      headers: headers,
+      body: req.toJson(),
+    );
+
+    if (response.statusCode == 200) {
+      return right(AddAddressResponseModel.fromJson(response.body));
+    } else {
+      return left('Terjadi kesalahan. Silakan coba lagi.');
+    }
+  }
+
+  Future<Either<String, AddAddressResponseModel>> setAsDefaultAddress(
+      int addressId, DefaultAddressRequestModel req) async {
+    final token = await AuthLocalDatasource().getToken();
+    final headers = <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final response = await http.put(
+      Uri.parse('${Variables.baseUrl}/api/addresses/$addressId'),
       headers: headers,
       body: req.toJson(),
     );

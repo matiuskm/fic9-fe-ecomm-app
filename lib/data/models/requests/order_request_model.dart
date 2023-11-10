@@ -1,53 +1,55 @@
 import 'dart:convert';
 
 class OrderRequestModel {
-    final Data data;
+  final Data data;
 
-    OrderRequestModel({
-        required this.data,
-    });
+  OrderRequestModel({
+    required this.data,
+  });
 
-    factory OrderRequestModel.fromRawJson(String str) => OrderRequestModel.fromJson(json.decode(str));
+  factory OrderRequestModel.fromRawJson(String str) =>
+      OrderRequestModel.fromJson(json.decode(str));
 
-    String toRawJson() => json.encode(toJson());
+  String toRawJson() => json.encode(toJson());
 
-    factory OrderRequestModel.fromJson(Map<String, dynamic> json) => OrderRequestModel(
+  factory OrderRequestModel.fromJson(Map<String, dynamic> json) =>
+      OrderRequestModel(
         data: Data.fromJson(json["data"]),
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "data": data.toJson(),
-    };
+      };
 }
 
 class Data {
-    final List<Item> items;
-    final int total;
-    final String shippingAddress;
-    final String shippingCourier;
-    final int shippingFee;
-    final String status;
-    final String orderNumber;
-    final int userId;
-    final String shippingReceiver;
+  final List<Item> items;
+  final int total;
+  final String shippingAddress;
+  final String shippingCourier;
+  final int shippingFee;
+  final String status;
+  final String orderNumber;
+  final int userId;
+  final String shippingReceiver;
 
-    Data({
-        required this.items,
-        required this.total,
-        required this.shippingAddress,
-        required this.shippingCourier,
-        required this.shippingFee,
-        required this.status,
-        required this.orderNumber,
-        required this.userId,
-        required this.shippingReceiver,
-    });
+  Data({
+    required this.items,
+    required this.total,
+    required this.shippingAddress,
+    required this.shippingCourier,
+    required this.shippingFee,
+    required this.status,
+    required this.orderNumber,
+    required this.userId,
+    required this.shippingReceiver,
+  });
 
-    factory Data.fromRawJson(String str) => Data.fromJson(json.decode(str));
+  factory Data.fromRawJson(String str) => Data.fromJson(json.decode(str));
 
-    String toRawJson() => json.encode(toJson());
+  String toRawJson() => json.encode(toJson());
 
-    factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
         items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
         total: json["total"],
         shippingAddress: json["shipping_address"],
@@ -57,9 +59,9 @@ class Data {
         orderNumber: json["order_number"],
         userId: json["user_id"],
         shippingReceiver: json["shipping_receiver"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "items": List<dynamic>.from(items.map((x) => x.toJson())),
         "total": total,
         "shipping_address": shippingAddress,
@@ -67,37 +69,39 @@ class Data {
         "shipping_fee": shippingFee,
         "status": status,
         "order_number": orderNumber,
-    };
+        "user_id": userId,
+        "shipping_receiver": shippingReceiver,
+      };
 }
 
 class Item {
-    final int id;
-    final String productName;
-    final int price;
-    final int qty;
+  final int id;
+  final String productName;
+  final int price;
+  final int qty;
 
-    Item({
-        required this.id,
-        required this.productName,
-        required this.price,
-        required this.qty,
-    });
+  Item({
+    required this.id,
+    required this.productName,
+    required this.price,
+    required this.qty,
+  });
 
-    factory Item.fromRawJson(String str) => Item.fromJson(json.decode(str));
+  factory Item.fromRawJson(String str) => Item.fromJson(json.decode(str));
 
-    String toRawJson() => json.encode(toJson());
+  String toRawJson() => json.encode(toJson());
 
-    factory Item.fromJson(Map<String, dynamic> json) => Item(
+  factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json["id"],
         productName: json["product_name"],
         price: json["price"],
         qty: json["qty"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "product_name": productName,
         "price": price,
         "qty": qty,
-    };
+      };
 }

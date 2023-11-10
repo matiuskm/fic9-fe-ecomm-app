@@ -2,11 +2,9 @@ import 'dart:convert';
 
 class AddAddressResponseModel {
     final Data data;
-    final Meta meta;
 
     AddAddressResponseModel({
         required this.data,
-        required this.meta,
     });
 
     factory AddAddressResponseModel.fromJson(String str) => AddAddressResponseModel.fromMap(json.decode(str));
@@ -15,40 +13,15 @@ class AddAddressResponseModel {
 
     factory AddAddressResponseModel.fromMap(Map<String, dynamic> json) => AddAddressResponseModel(
         data: Data.fromMap(json["data"]),
-        meta: Meta.fromMap(json["meta"]),
     );
 
     Map<String, dynamic> toMap() => {
         "data": data.toMap(),
-        "meta": meta.toMap(),
     };
 }
 
 class Data {
     final int id;
-    final Attributes attributes;
-
-    Data({
-        required this.id,
-        required this.attributes,
-    });
-
-    factory Data.fromJson(String str) => Data.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory Data.fromMap(Map<String, dynamic> json) => Data(
-        id: json["id"],
-        attributes: Attributes.fromMap(json["attributes"]),
-    );
-
-    Map<String, dynamic> toMap() => {
-        "id": id,
-        "attributes": attributes.toMap(),
-    };
-}
-
-class Attributes {
     final String name;
     final String street;
     final String phone;
@@ -57,12 +30,15 @@ class Attributes {
     final String subdistrictId;
     final String zipcode;
     final String userId;
-    final String createdAt;
-    final String updatedAt;
-    final String publishedAt;
+    final DateTime createdAt;
+    final DateTime updatedAt;
+    final DateTime publishedAt;
     final bool isDefault;
+    final String completeAddress;
+    final String label;
 
-    Attributes({
+    Data({
+        required this.id,
         required this.name,
         required this.street,
         required this.phone,
@@ -75,13 +51,16 @@ class Attributes {
         required this.updatedAt,
         required this.publishedAt,
         required this.isDefault,
+        required this.completeAddress,
+        required this.label,
     });
 
-    factory Attributes.fromJson(String str) => Attributes.fromMap(json.decode(str));
+    factory Data.fromJson(String str) => Data.fromMap(json.decode(str));
 
     String toJson() => json.encode(toMap());
 
-    factory Attributes.fromMap(Map<String, dynamic> json) => Attributes(
+    factory Data.fromMap(Map<String, dynamic> json) => Data(
+        id: json["id"],
         name: json["name"],
         street: json["street"],
         phone: json["phone"],
@@ -90,13 +69,16 @@ class Attributes {
         subdistrictId: json["subdistrict_id"],
         zipcode: json["zipcode"],
         userId: json["user_id"],
-        createdAt: json["createdAt"],
-        updatedAt: json["updatedAt"],
-        publishedAt: json["publishedAt"],
+        createdAt: DateTime.parse(json["createdAt"]),
+        updatedAt: DateTime.parse(json["updatedAt"]),
+        publishedAt: DateTime.parse(json["publishedAt"]),
         isDefault: json["is_default"],
+        completeAddress: json["complete_address"],
+        label: json["label"],
     );
 
     Map<String, dynamic> toMap() => {
+        "id": id,
         "name": name,
         "street": street,
         "phone": phone,
@@ -105,23 +87,11 @@ class Attributes {
         "subdistrict_id": subdistrictId,
         "zipcode": zipcode,
         "user_id": userId,
-        "createdAt": createdAt,
-        "updatedAt": updatedAt,
-        "publishedAt": publishedAt,
+        "createdAt": createdAt.toIso8601String(),
+        "updatedAt": updatedAt.toIso8601String(),
+        "publishedAt": publishedAt.toIso8601String(),
         "is_default": isDefault,
-    };
-}
-
-class Meta {
-    Meta();
-
-    factory Meta.fromJson(String str) => Meta.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory Meta.fromMap(Map<String, dynamic> json) => Meta(
-    );
-
-    Map<String, dynamic> toMap() => {
+        "complete_address": completeAddress,
+        "label": label,
     };
 }

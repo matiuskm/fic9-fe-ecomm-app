@@ -21,6 +21,8 @@ mixin _$GetAddressEvent {
     required TResult Function() started,
     required TResult Function() getAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function(int addressId, DefaultAddressRequestModel data)
+        setAsDefaultAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$GetAddressEvent {
     TResult? Function()? started,
     TResult? Function()? getAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$GetAddressEvent {
     TResult Function()? started,
     TResult Function()? getAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,7 @@ mixin _$GetAddressEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_DeleteAddress value) deleteAddress,
+    required TResult Function(_SetAsDefaultAddress value) setAsDefaultAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +57,7 @@ mixin _$GetAddressEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_DeleteAddress value)? deleteAddress,
+    TResult? Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +65,7 @@ mixin _$GetAddressEvent {
     TResult Function(_Started value)? started,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_DeleteAddress value)? deleteAddress,
+    TResult Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +130,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function() getAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function(int addressId, DefaultAddressRequestModel data)
+        setAsDefaultAddress,
   }) {
     return started();
   }
@@ -131,6 +142,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function()? getAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
   }) {
     return started?.call();
   }
@@ -141,6 +154,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function()? getAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -155,6 +170,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_DeleteAddress value) deleteAddress,
+    required TResult Function(_SetAsDefaultAddress value) setAsDefaultAddress,
   }) {
     return started(this);
   }
@@ -165,6 +181,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_DeleteAddress value)? deleteAddress,
+    TResult? Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
   }) {
     return started?.call(this);
   }
@@ -175,6 +192,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_DeleteAddress value)? deleteAddress,
+    TResult Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -229,6 +247,8 @@ class _$GetAddressImpl implements _GetAddress {
     required TResult Function() started,
     required TResult Function() getAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function(int addressId, DefaultAddressRequestModel data)
+        setAsDefaultAddress,
   }) {
     return getAddress();
   }
@@ -239,6 +259,8 @@ class _$GetAddressImpl implements _GetAddress {
     TResult? Function()? started,
     TResult? Function()? getAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
   }) {
     return getAddress?.call();
   }
@@ -249,6 +271,8 @@ class _$GetAddressImpl implements _GetAddress {
     TResult Function()? started,
     TResult Function()? getAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
     required TResult orElse(),
   }) {
     if (getAddress != null) {
@@ -263,6 +287,7 @@ class _$GetAddressImpl implements _GetAddress {
     required TResult Function(_Started value) started,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_DeleteAddress value) deleteAddress,
+    required TResult Function(_SetAsDefaultAddress value) setAsDefaultAddress,
   }) {
     return getAddress(this);
   }
@@ -273,6 +298,7 @@ class _$GetAddressImpl implements _GetAddress {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_DeleteAddress value)? deleteAddress,
+    TResult? Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
   }) {
     return getAddress?.call(this);
   }
@@ -283,6 +309,7 @@ class _$GetAddressImpl implements _GetAddress {
     TResult Function(_Started value)? started,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_DeleteAddress value)? deleteAddress,
+    TResult Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
     required TResult orElse(),
   }) {
     if (getAddress != null) {
@@ -364,6 +391,8 @@ class _$DeleteAddressImpl implements _DeleteAddress {
     required TResult Function() started,
     required TResult Function() getAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function(int addressId, DefaultAddressRequestModel data)
+        setAsDefaultAddress,
   }) {
     return deleteAddress(addressId);
   }
@@ -374,6 +403,8 @@ class _$DeleteAddressImpl implements _DeleteAddress {
     TResult? Function()? started,
     TResult? Function()? getAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
   }) {
     return deleteAddress?.call(addressId);
   }
@@ -384,6 +415,8 @@ class _$DeleteAddressImpl implements _DeleteAddress {
     TResult Function()? started,
     TResult Function()? getAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
     required TResult orElse(),
   }) {
     if (deleteAddress != null) {
@@ -398,6 +431,7 @@ class _$DeleteAddressImpl implements _DeleteAddress {
     required TResult Function(_Started value) started,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_DeleteAddress value) deleteAddress,
+    required TResult Function(_SetAsDefaultAddress value) setAsDefaultAddress,
   }) {
     return deleteAddress(this);
   }
@@ -408,6 +442,7 @@ class _$DeleteAddressImpl implements _DeleteAddress {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_DeleteAddress value)? deleteAddress,
+    TResult? Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
   }) {
     return deleteAddress?.call(this);
   }
@@ -418,6 +453,7 @@ class _$DeleteAddressImpl implements _DeleteAddress {
     TResult Function(_Started value)? started,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_DeleteAddress value)? deleteAddress,
+    TResult Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
     required TResult orElse(),
   }) {
     if (deleteAddress != null) {
@@ -437,12 +473,174 @@ abstract class _DeleteAddress implements GetAddressEvent {
 }
 
 /// @nodoc
+abstract class _$$SetAsDefaultAddressImplCopyWith<$Res> {
+  factory _$$SetAsDefaultAddressImplCopyWith(_$SetAsDefaultAddressImpl value,
+          $Res Function(_$SetAsDefaultAddressImpl) then) =
+      __$$SetAsDefaultAddressImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int addressId, DefaultAddressRequestModel data});
+}
+
+/// @nodoc
+class __$$SetAsDefaultAddressImplCopyWithImpl<$Res>
+    extends _$GetAddressEventCopyWithImpl<$Res, _$SetAsDefaultAddressImpl>
+    implements _$$SetAsDefaultAddressImplCopyWith<$Res> {
+  __$$SetAsDefaultAddressImplCopyWithImpl(_$SetAsDefaultAddressImpl _value,
+      $Res Function(_$SetAsDefaultAddressImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? addressId = null,
+    Object? data = null,
+  }) {
+    return _then(_$SetAsDefaultAddressImpl(
+      null == addressId
+          ? _value.addressId
+          : addressId // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as DefaultAddressRequestModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetAsDefaultAddressImpl implements _SetAsDefaultAddress {
+  const _$SetAsDefaultAddressImpl(this.addressId, this.data);
+
+  @override
+  final int addressId;
+  @override
+  final DefaultAddressRequestModel data;
+
+  @override
+  String toString() {
+    return 'GetAddressEvent.setAsDefaultAddress(addressId: $addressId, data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetAsDefaultAddressImpl &&
+            (identical(other.addressId, addressId) ||
+                other.addressId == addressId) &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, addressId, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetAsDefaultAddressImplCopyWith<_$SetAsDefaultAddressImpl> get copyWith =>
+      __$$SetAsDefaultAddressImplCopyWithImpl<_$SetAsDefaultAddressImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getAddress,
+    required TResult Function(int addressId) deleteAddress,
+    required TResult Function(int addressId, DefaultAddressRequestModel data)
+        setAsDefaultAddress,
+  }) {
+    return setAsDefaultAddress(addressId, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getAddress,
+    TResult? Function(int addressId)? deleteAddress,
+    TResult? Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
+  }) {
+    return setAsDefaultAddress?.call(addressId, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getAddress,
+    TResult Function(int addressId)? deleteAddress,
+    TResult Function(int addressId, DefaultAddressRequestModel data)?
+        setAsDefaultAddress,
+    required TResult orElse(),
+  }) {
+    if (setAsDefaultAddress != null) {
+      return setAsDefaultAddress(addressId, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetAddress value) getAddress,
+    required TResult Function(_DeleteAddress value) deleteAddress,
+    required TResult Function(_SetAsDefaultAddress value) setAsDefaultAddress,
+  }) {
+    return setAsDefaultAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_GetAddress value)? getAddress,
+    TResult? Function(_DeleteAddress value)? deleteAddress,
+    TResult? Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
+  }) {
+    return setAsDefaultAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetAddress value)? getAddress,
+    TResult Function(_DeleteAddress value)? deleteAddress,
+    TResult Function(_SetAsDefaultAddress value)? setAsDefaultAddress,
+    required TResult orElse(),
+  }) {
+    if (setAsDefaultAddress != null) {
+      return setAsDefaultAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetAsDefaultAddress implements GetAddressEvent {
+  const factory _SetAsDefaultAddress(
+          final int addressId, final DefaultAddressRequestModel data) =
+      _$SetAsDefaultAddressImpl;
+
+  int get addressId;
+  DefaultAddressRequestModel get data;
+  @JsonKey(ignore: true)
+  _$$SetAsDefaultAddressImplCopyWith<_$SetAsDefaultAddressImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$GetAddressState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<GetAddress> data) loaded,
+    required TResult Function(AddAddressResponseModel data) setDefault,
     required TResult Function(SingleAddressResponseModel data) deleted,
     required TResult Function(String message) error,
   }) =>
@@ -452,6 +650,7 @@ mixin _$GetAddressState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<GetAddress> data)? loaded,
+    TResult? Function(AddAddressResponseModel data)? setDefault,
     TResult? Function(SingleAddressResponseModel data)? deleted,
     TResult? Function(String message)? error,
   }) =>
@@ -461,6 +660,7 @@ mixin _$GetAddressState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<GetAddress> data)? loaded,
+    TResult Function(AddAddressResponseModel data)? setDefault,
     TResult Function(SingleAddressResponseModel data)? deleted,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -471,6 +671,7 @@ mixin _$GetAddressState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Error value) error,
   }) =>
@@ -480,6 +681,7 @@ mixin _$GetAddressState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Error value)? error,
   }) =>
@@ -489,6 +691,7 @@ mixin _$GetAddressState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -555,6 +758,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<GetAddress> data) loaded,
+    required TResult Function(AddAddressResponseModel data) setDefault,
     required TResult Function(SingleAddressResponseModel data) deleted,
     required TResult Function(String message) error,
   }) {
@@ -567,6 +771,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<GetAddress> data)? loaded,
+    TResult? Function(AddAddressResponseModel data)? setDefault,
     TResult? Function(SingleAddressResponseModel data)? deleted,
     TResult? Function(String message)? error,
   }) {
@@ -579,6 +784,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<GetAddress> data)? loaded,
+    TResult Function(AddAddressResponseModel data)? setDefault,
     TResult Function(SingleAddressResponseModel data)? deleted,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -595,6 +801,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Error value) error,
   }) {
@@ -607,6 +814,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Error value)? error,
   }) {
@@ -619,6 +827,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -675,6 +884,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<GetAddress> data) loaded,
+    required TResult Function(AddAddressResponseModel data) setDefault,
     required TResult Function(SingleAddressResponseModel data) deleted,
     required TResult Function(String message) error,
   }) {
@@ -687,6 +897,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<GetAddress> data)? loaded,
+    TResult? Function(AddAddressResponseModel data)? setDefault,
     TResult? Function(SingleAddressResponseModel data)? deleted,
     TResult? Function(String message)? error,
   }) {
@@ -699,6 +910,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<GetAddress> data)? loaded,
+    TResult Function(AddAddressResponseModel data)? setDefault,
     TResult Function(SingleAddressResponseModel data)? deleted,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -715,6 +927,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Error value) error,
   }) {
@@ -727,6 +940,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Error value)? error,
   }) {
@@ -739,6 +953,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -827,6 +1042,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<GetAddress> data) loaded,
+    required TResult Function(AddAddressResponseModel data) setDefault,
     required TResult Function(SingleAddressResponseModel data) deleted,
     required TResult Function(String message) error,
   }) {
@@ -839,6 +1055,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<GetAddress> data)? loaded,
+    TResult? Function(AddAddressResponseModel data)? setDefault,
     TResult? Function(SingleAddressResponseModel data)? deleted,
     TResult? Function(String message)? error,
   }) {
@@ -851,6 +1068,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<GetAddress> data)? loaded,
+    TResult Function(AddAddressResponseModel data)? setDefault,
     TResult Function(SingleAddressResponseModel data)? deleted,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -867,6 +1085,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Error value) error,
   }) {
@@ -879,6 +1098,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Error value)? error,
   }) {
@@ -891,6 +1111,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -908,6 +1129,164 @@ abstract class _Loaded implements GetAddressState {
   List<GetAddress> get data;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetDefaultImplCopyWith<$Res> {
+  factory _$$SetDefaultImplCopyWith(
+          _$SetDefaultImpl value, $Res Function(_$SetDefaultImpl) then) =
+      __$$SetDefaultImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AddAddressResponseModel data});
+}
+
+/// @nodoc
+class __$$SetDefaultImplCopyWithImpl<$Res>
+    extends _$GetAddressStateCopyWithImpl<$Res, _$SetDefaultImpl>
+    implements _$$SetDefaultImplCopyWith<$Res> {
+  __$$SetDefaultImplCopyWithImpl(
+      _$SetDefaultImpl _value, $Res Function(_$SetDefaultImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$SetDefaultImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddAddressResponseModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetDefaultImpl implements _SetDefault {
+  const _$SetDefaultImpl(this.data);
+
+  @override
+  final AddAddressResponseModel data;
+
+  @override
+  String toString() {
+    return 'GetAddressState.setDefault(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetDefaultImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetDefaultImplCopyWith<_$SetDefaultImpl> get copyWith =>
+      __$$SetDefaultImplCopyWithImpl<_$SetDefaultImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<GetAddress> data) loaded,
+    required TResult Function(AddAddressResponseModel data) setDefault,
+    required TResult Function(SingleAddressResponseModel data) deleted,
+    required TResult Function(String message) error,
+  }) {
+    return setDefault(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<GetAddress> data)? loaded,
+    TResult? Function(AddAddressResponseModel data)? setDefault,
+    TResult? Function(SingleAddressResponseModel data)? deleted,
+    TResult? Function(String message)? error,
+  }) {
+    return setDefault?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<GetAddress> data)? loaded,
+    TResult Function(AddAddressResponseModel data)? setDefault,
+    TResult Function(SingleAddressResponseModel data)? deleted,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (setDefault != null) {
+      return setDefault(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SetDefault value) setDefault,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Error value) error,
+  }) {
+    return setDefault(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SetDefault value)? setDefault,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Error value)? error,
+  }) {
+    return setDefault?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_SetDefault value)? setDefault,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (setDefault != null) {
+      return setDefault(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetDefault implements GetAddressState {
+  const factory _SetDefault(final AddAddressResponseModel data) =
+      _$SetDefaultImpl;
+
+  AddAddressResponseModel get data;
+  @JsonKey(ignore: true)
+  _$$SetDefaultImplCopyWith<_$SetDefaultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -978,6 +1357,7 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<GetAddress> data) loaded,
+    required TResult Function(AddAddressResponseModel data) setDefault,
     required TResult Function(SingleAddressResponseModel data) deleted,
     required TResult Function(String message) error,
   }) {
@@ -990,6 +1370,7 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<GetAddress> data)? loaded,
+    TResult? Function(AddAddressResponseModel data)? setDefault,
     TResult? Function(SingleAddressResponseModel data)? deleted,
     TResult? Function(String message)? error,
   }) {
@@ -1002,6 +1383,7 @@ class _$DeletedImpl implements _Deleted {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<GetAddress> data)? loaded,
+    TResult Function(AddAddressResponseModel data)? setDefault,
     TResult Function(SingleAddressResponseModel data)? deleted,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1018,6 +1400,7 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Error value) error,
   }) {
@@ -1030,6 +1413,7 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Error value)? error,
   }) {
@@ -1042,6 +1426,7 @@ class _$DeletedImpl implements _Deleted {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -1129,6 +1514,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<GetAddress> data) loaded,
+    required TResult Function(AddAddressResponseModel data) setDefault,
     required TResult Function(SingleAddressResponseModel data) deleted,
     required TResult Function(String message) error,
   }) {
@@ -1141,6 +1527,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<GetAddress> data)? loaded,
+    TResult? Function(AddAddressResponseModel data)? setDefault,
     TResult? Function(SingleAddressResponseModel data)? deleted,
     TResult? Function(String message)? error,
   }) {
@@ -1153,6 +1540,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<GetAddress> data)? loaded,
+    TResult Function(AddAddressResponseModel data)? setDefault,
     TResult Function(SingleAddressResponseModel data)? deleted,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1169,6 +1557,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Error value) error,
   }) {
@@ -1181,6 +1570,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Error value)? error,
   }) {
@@ -1193,6 +1583,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Error value)? error,
     required TResult orElse(),

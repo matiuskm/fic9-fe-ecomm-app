@@ -363,8 +363,10 @@ class _CartPageState extends State<CartPage> {
                                     final requestModel =
                                         order_request.OrderRequestModel(
                                             data: data);
-                                    context.read<OrderBloc>().add(
-                                        OrderEvent.createOrder(requestModel));
+                                    if (context.mounted) {
+                                      context.read<OrderBloc>().add(
+                                          OrderEvent.createOrder(requestModel));
+                                    }
                                   },
                                   label: 'Bayar Sekarang',
                                 );

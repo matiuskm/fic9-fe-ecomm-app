@@ -74,10 +74,13 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                        int.parse(widget.data.product.attributes.price)
-                            .currencyFormatIdr,
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                            fontWeight: FontWeight.bold, color: Colors.orange)),
+                      int.parse(widget.data.product.attributes.price)
+                          .currencyFormatIdr,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.orange,
+                      ),
+                    ),
                     const Spacer(),
                     Container(
                       padding: const EdgeInsets.all(1.0),

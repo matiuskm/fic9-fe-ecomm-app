@@ -1,6 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter_fic9_ecommerce_app/data/models/rajaongkir/province_model.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/rajaongkir/status_model.dart';
+
 class ProvinceResponseModel {
     final Rajaongkir rajaongkir;
 
@@ -20,7 +23,6 @@ class ProvinceResponseModel {
         "rajaongkir": rajaongkir.toMap(),
     };
 }
-
 class Rajaongkir {
     final List<dynamic> query;
     final Status status;
@@ -46,56 +48,5 @@ class Rajaongkir {
         "query": List<dynamic>.from(query.map((x) => x)),
         "status": status.toMap(),
         "results": List<dynamic>.from(results.map((x) => x.toMap())),
-    };
-}
-
-class Province {
-    final String provinceId;
-    final String province;
-
-    Province({
-        required this.provinceId,
-        required this.province,
-    });
-
-    factory Province.fromJson(String str) => Province.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory Province.fromMap(Map<String, dynamic> json) => Province(
-        provinceId: json["province_id"],
-        province: json["province"],
-    );
-
-    Map<String, dynamic> toMap() => {
-        "province_id": provinceId,
-        "province": province,
-    };
-
-  @override
-  String toString() => province;
-}
-
-class Status {
-    final int code;
-    final String description;
-
-    Status({
-        required this.code,
-        required this.description,
-    });
-
-    factory Status.fromJson(String str) => Status.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory Status.fromMap(Map<String, dynamic> json) => Status(
-        code: json["code"],
-        description: json["description"],
-    );
-
-    Map<String, dynamic> toMap() => {
-        "code": code,
-        "description": description,
     };
 }

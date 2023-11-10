@@ -1,6 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter_fic9_ecommerce_app/data/models/rajaongkir/city_model.dart';
+import 'package:flutter_fic9_ecommerce_app/data/models/rajaongkir/status_model.dart';
+
 class CityResponseModel {
   final Rajaongkir rajaongkir;
 
@@ -69,74 +72,5 @@ class Query {
 
   Map<String, dynamic> toMap() => {
         "province": province,
-      };
-}
-
-class City {
-  final String cityId;
-  final String provinceId;
-  final String province;
-  final String type;
-  final String cityName;
-  final String postalCode;
-
-  City({
-    required this.cityId,
-    required this.provinceId,
-    required this.province,
-    required this.type,
-    required this.cityName,
-    required this.postalCode,
-  });
-
-  factory City.fromJson(String str) => City.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory City.fromMap(Map<String, dynamic> json) => City(
-        cityId: json["city_id"],
-        provinceId: json["province_id"],
-        province: json["province"],
-        type: json["type"],
-        cityName: json["city_name"],
-        postalCode: json["postal_code"],
-      );
-
-  Map<String, dynamic> toMap() => {
-        "city_id": cityId,
-        "province_id": provinceId,
-        "province": province,
-        "type": type,
-        "city_name": cityName,
-        "postal_code": postalCode,
-      };
-
-  @override
-  String toString() {
-    return '$type $cityName';
-  }
-}
-
-class Status {
-  final int code;
-  final String description;
-
-  Status({
-    required this.code,
-    required this.description,
-  });
-
-  factory Status.fromJson(String str) => Status.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory Status.fromMap(Map<String, dynamic> json) => Status(
-        code: json["code"],
-        description: json["description"],
-      );
-
-  Map<String, dynamic> toMap() => {
-        "code": code,
-        "description": description,
       };
 }

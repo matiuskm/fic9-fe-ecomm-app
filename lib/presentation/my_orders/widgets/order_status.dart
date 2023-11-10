@@ -36,7 +36,6 @@ class _Status extends StatelessWidget {
   final bool isLast;
 
   const _Status({
-    super.key,
     required this.label,
     required this.isActive,
     this.isFirst = false,
