@@ -15,6 +15,7 @@ class GetCostBloc extends Bloc<GetCostEvent, GetCostState> {
         event.origin,
         event.destination,
         event.courier,
+        event.weight,
       );
       response.fold((l) => emit(_Error(l)), (r) => emit(_Loaded(r)));
     });

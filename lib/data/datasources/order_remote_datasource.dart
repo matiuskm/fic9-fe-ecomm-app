@@ -60,7 +60,7 @@ class OrderRemoteDatasource {
     final user = await AuthLocalDatasource().getUser();
     final response = await http.get(
       Uri.parse(
-          '${Variables.baseUrl}/api/orders?filters[user_id][\$eq]=${user.id}'),
+          '${Variables.baseUrl}/api/orders?filters[user_id][\$eq]=${user.id}&sort=createdAt:desc'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer $token',

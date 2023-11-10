@@ -37,6 +37,7 @@ class _CartPageState extends State<CartPage> {
   GetAddress? selectedAddress;
   CourierModel? selectedCourier;
   int localTotal = 0;
+  int localWeight = 0;
   List<order_request.Item> items = [];
 
   final List<CourierModel> courierOptions = [
@@ -84,6 +85,11 @@ class _CartPageState extends State<CartPage> {
                           );
                         },
                         loaded: (carts) {
+                          localWeight = 0;
+                          for (var element in carts) {
+                            localWeight +=
+                                element.product.attributes.weight * element.qty;
+                          }
                           return ListView.separated(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -143,6 +149,7 @@ class _CartPageState extends State<CartPage> {
                                 origin: '2095',
                                 destination: address.attributes.subdistrictId,
                                 courier: selectedCourier!.value,
+                                weight: localWeight.toString(),
                               ));
                           return Container(
                             padding: const EdgeInsets.all(16.0),
@@ -215,6 +222,7 @@ class _CartPageState extends State<CartPage> {
                                 destination:
                                     selectedAddress!.attributes.subdistrictId,
                                 courier: selectedCourier!.value,
+                                weight: localWeight.toString(),
                               ));
                         });
                       },
@@ -242,21 +250,27 @@ class _CartPageState extends State<CartPage> {
                               loaded: (carts) {
                                 int totalPrice = 0;
                                 for (var element in carts) {
-                                  totalPrice += int.parse(
-                                          element.product.attributes.price) *
-                                      element.qty;
+                                  String price =
+                                      element.product.attributes.price;
+                                  if (element.product.attributes.isDiscount) {
+                                    price =
+                                        element.product.attributes.specialPrice;
+                                  }
+                                  totalPrice += int.parse(price) * element.qty;
                                 }
                                 localTotal = totalPrice;
-                                items = carts
-                                    .map((e) => order_request.Item(
-                                          id: e.product.id,
-                                          productName:
-                                              e.product.attributes.name,
-                                          qty: e.qty,
-                                          price: int.parse(
-                                              e.product.attributes.price),
-                                        ))
-                                    .toList();
+                                items = carts.map((e) {
+                                  String price = e.product.attributes.price;
+                                  if (e.product.attributes.isDiscount) {
+                                    price = e.product.attributes.specialPrice;
+                                  }
+                                  return order_request.Item(
+                                    id: e.product.id,
+                                    productName: e.product.attributes.name,
+                                    qty: e.qty,
+                                    price: int.parse(price),
+                                  );
+                                }).toList();
                                 return RowText(
                                   label: 'Subtotal',
                                   value: totalPrice.currencyFormatIdr,
@@ -313,9 +327,13 @@ class _CartPageState extends State<CartPage> {
                                   );
                                   int totalPrice = 0;
                                   for (var item in carts) {
-                                    totalPrice += int.parse(
-                                            item.product.attributes.price) *
-                                        item.qty;
+                                    String price =
+                                        item.product.attributes.price;
+                                    if (item.product.attributes.isDiscount) {
+                                      price =
+                                          item.product.attributes.specialPrice;
+                                    }
+                                    totalPrice += int.parse(price) * item.qty;
                                   }
 
                                   totalPrice += shippingFee;
@@ -350,8 +368,8 @@ class _CartPageState extends State<CartPage> {
                                     final data = order_request.Data(
                                       items: items,
                                       total: localTotal,
-                                      shippingAddress:
-                                          selectedAddress!.attributes.street,
+                                      shippingAddress: selectedAddress!
+                                          .attributes.completeAddress,
                                       shippingCourier: selectedCourier!.value,
                                       shippingFee: shippingFee,
                                       status: 'pending_payment',

@@ -67,16 +67,20 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       MaterialPageRoute(
                           builder: (context) => const CartPage()));
                 },
-                label: "Add to Cart",
+                label: widget.product.attributes.stock == 0
+                    ? "Stok Kosong"
+                    : "Add to Cart",
+                disabled: widget.product.attributes.stock == 0,
               ),
             ),
             const SpaceWidth(15.0),
-            Flexible(
-                child: Button.outlined(
-              onPressed: () {},
-              label: "Buy Now",
-              color: ColorName.light,
-            ))
+            // Flexible(
+            //     child: Button.outlined(
+            //   onPressed: () {},
+            //   label: "Buy Now",
+            //   color: ColorName.light,
+            //   disabled: widget.product.attributes.stock == 0,
+            // ))
           ],
         ),
       ),

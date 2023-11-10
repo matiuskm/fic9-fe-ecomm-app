@@ -60,6 +60,11 @@ class PurpleAttributes {
   final DateTime publishedAt;
   final Images images;
   final Categories categories;
+  final int weight;
+  final String specialPrice;
+  final DateTime specialPriceStart;
+  final DateTime specialPriceEnd;
+  final bool isDiscount;
 
   PurpleAttributes({
     required this.name,
@@ -71,6 +76,11 @@ class PurpleAttributes {
     required this.publishedAt,
     required this.images,
     required this.categories,
+    required this.weight,
+    required this.specialPrice,
+    required this.specialPriceStart,
+    required this.specialPriceEnd,
+    required this.isDiscount,
   });
 
   factory PurpleAttributes.fromJson(String str) =>
@@ -78,29 +88,55 @@ class PurpleAttributes {
 
   String toJson() => json.encode(toMap());
 
-  factory PurpleAttributes.fromMap(Map<String, dynamic> json) =>
-      PurpleAttributes(
-        name: json["name"],
-        description: json["description"],
-        price: json["price"],
-        stock: json["stock"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        updatedAt: DateTime.parse(json["updatedAt"]),
-        publishedAt: DateTime.parse(json["publishedAt"]),
-        images: Images.fromMap(json["image"]),
-        categories: Categories.fromMap(json["categories"]),
-      );
+  factory PurpleAttributes.fromMap(Map<String, dynamic> json) {
+    bool _isDiscount = false;
+    DateTime today = DateTime.now();
+    if (json["special_price"] != null && int.parse(json["special_price"]) > 0) {
+      if (json["special_price_start"] != null) {
+        _isDiscount =
+            DateTime.parse(json["special_price_start"]).isBefore(today);
+        if (json["special_price_end"] != null) {
+          _isDiscount =
+              DateTime.parse(json["special_price_end"]).isAfter(today);
+        }
+      }
+    }
+    return PurpleAttributes(
+      name: json["name"],
+      description: json["description"],
+      price: json["price"],
+      stock: json["stock"],
+      createdAt: DateTime.parse(json["createdAt"]),
+      updatedAt: DateTime.parse(json["updatedAt"]),
+      publishedAt: DateTime.parse(json["publishedAt"]),
+      images: Images.fromMap(json["image"]),
+      categories: Categories.fromMap(json["categories"]),
+      weight: json["weight"],
+      specialPrice: json["special_price"] ?? '0',
+      specialPriceStart: json["special_price_start"] != null
+          ? DateTime.parse(json["special_price_start"])
+          : DateTime.now(),
+      specialPriceEnd: json["special_price_end"] != null
+          ? DateTime.parse(json["special_price_end"])
+          : DateTime.now(),
+      isDiscount: _isDiscount,
+    );
+  }
 
   Map<String, dynamic> toMap() => {
         "name": name,
         "description": description,
         "price": price,
         "stock": stock,
+        "weight": weight,
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
         "publishedAt": publishedAt.toIso8601String(),
         "images": images.toMap(),
         "categories": categories.toMap(),
+        "special_price": specialPrice,
+        "special_price_start": specialPriceStart.toIso8601String(),
+        "special_price_end": specialPriceEnd.toIso8601String(),
       };
 }
 

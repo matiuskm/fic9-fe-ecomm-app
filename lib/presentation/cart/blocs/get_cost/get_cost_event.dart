@@ -7,5 +7,6 @@ class GetCostEvent with _$GetCostEvent {
     required String origin,
     required String destination,
     required String courier,
+    required String weight,
   }) = _GetCost;
 }

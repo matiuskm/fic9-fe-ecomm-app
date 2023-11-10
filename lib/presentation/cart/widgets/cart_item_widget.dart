@@ -15,6 +15,47 @@ class CartItemWidget extends StatefulWidget {
 }
 
 class _CartItemWidgetState extends State<CartItemWidget> {
+  Widget checkDiscount() {
+    if (widget.data.product.attributes.isDiscount) {
+      return Row(
+        children: [
+          Text(
+            int.parse(widget.data.product.attributes.price).currencyFormatIdr,
+            maxLines: 1,
+            overflow: TextOverflow.clip,
+            softWrap: false,
+            style: const TextStyle(
+              fontSize: 10,
+              color: Colors.grey,
+              decoration: TextDecoration.lineThrough,
+            ),
+          ),
+          Text(
+            int.parse(widget.data.product.attributes.specialPrice)
+                .currencyFormatIdr,
+            maxLines: 1,
+            overflow: TextOverflow.clip,
+            softWrap: false,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.red,
+            ),
+          ),
+        ],
+      );
+    }
+    return Text(
+      int.parse(widget.data.product.attributes.price).currencyFormatIdr,
+      maxLines: 1,
+      overflow: TextOverflow.clip,
+      softWrap: false,
+      style: const TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Colors.orange,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -73,14 +114,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      int.parse(widget.data.product.attributes.price)
-                          .currencyFormatIdr,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.orange,
-                      ),
-                    ),
+                    checkDiscount(),
                     const Spacer(),
                     Container(
                       padding: const EdgeInsets.all(1.0),

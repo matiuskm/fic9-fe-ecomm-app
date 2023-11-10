@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fic9_ecommerce_app/common/constants/colors.dart';
 
 class RowText extends StatelessWidget {
-  final String label;
-  final String value;
+  final String? label;
+  final String? value;
   final Color valueColor;
   final FontWeight fontWeight;
 
@@ -22,7 +22,7 @@ class RowText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          label,
+          label!,
           style: TextStyle(
             fontSize: 12,
             fontWeight: fontWeight,
@@ -30,7 +30,7 @@ class RowText extends StatelessWidget {
         ),
         Flexible(
           child: Text(
-            value,
+            value!,
             textAlign: TextAlign.right,
             style: TextStyle(
               fontSize: 12,

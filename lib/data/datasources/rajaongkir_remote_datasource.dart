@@ -63,6 +63,7 @@ class RajaOngkirRemoteDatasource {
     String origin,
     String destination,
     String courier,
+    String weight,
   ) async {
     final url = Uri.parse('https://pro.rajaongkir.com/api/cost');
     final response = await http.post(
@@ -76,7 +77,7 @@ class RajaOngkirRemoteDatasource {
         'originType': 'subdistrict',
         'destination': destination,
         'destinationType': 'subdistrict',
-        'weight': '500',
+        'weight': weight,
         'courier': courier,
       },
     );

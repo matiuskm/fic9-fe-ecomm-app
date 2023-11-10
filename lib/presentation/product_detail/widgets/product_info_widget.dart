@@ -14,6 +14,40 @@ class ProductInfoWidget extends StatelessWidget {
       required this.onWishlistTap})
       : super(key: key);
 
+  Widget checkDiscount() {
+    if (product.attributes.isDiscount) {
+      return Row(
+        children: [
+          Text(
+            int.parse(product.attributes.price).currencyFormatIdr,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.grey,
+              decoration: TextDecoration.lineThrough,
+            ),
+          ),
+          const SpaceWidth(5),
+          Text(
+            int.parse(product.attributes.specialPrice).currencyFormatIdr,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.red,
+            ),
+          ),
+        ],
+      );
+    }
+    return Text(
+      int.parse(product.attributes.price).currencyFormatIdr,
+      style: const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        color: ColorName.primary,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     bool isWishList = false;
@@ -56,14 +90,7 @@ class ProductInfoWidget extends StatelessWidget {
         const SpaceHeight(4.0),
         Padding(
           padding: padding,
-          child: Text(
-            int.parse(product.attributes.price).currencyFormatIdr,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-              color: ColorName.primary,
-            ),
-          ),
+          child: checkDiscount(),
         ),
       ],
     );

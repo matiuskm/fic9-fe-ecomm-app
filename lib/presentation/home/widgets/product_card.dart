@@ -11,6 +11,46 @@ class ProductCard extends StatelessWidget {
   final Product data;
   const ProductCard({super.key, required this.data});
 
+  Widget checkDiscount() {
+    if (data.attributes.isDiscount) {
+      return Row(
+        children: [
+          Text(
+            int.parse(data.attributes.price).currencyFormatIdr,
+            maxLines: 1,
+            overflow: TextOverflow.clip,
+            softWrap: false,
+            style: const TextStyle(
+              fontSize: 10,
+              color: Colors.grey,
+              decoration: TextDecoration.lineThrough,
+            ),
+          ),
+          Text(
+            int.parse(data.attributes.specialPrice).currencyFormatIdr,
+            maxLines: 1,
+            overflow: TextOverflow.clip,
+            softWrap: false,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.red,
+            ),
+          ),
+        ],
+      );
+    }
+    return Text(
+      int.parse(data.attributes.price).currencyFormatIdr,
+      maxLines: 1,
+      overflow: TextOverflow.clip,
+      softWrap: false,
+      style: const TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Colors.orange,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -49,32 +89,34 @@ class ProductCard extends StatelessWidget {
                 softWrap: false,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  int.parse(data.attributes.price).currencyFormatIdr,
-                  maxLines: 1,
-                  overflow: TextOverflow.clip,
-                  softWrap: false,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.orange,
+            if (data.attributes.stock > 0)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  checkDiscount(),
+                  IconButton(
+                    onPressed: () {
+                      context
+                          .read<CartBloc>()
+                          .add(CartEvent.add(CartModel(product: data, qty: 1)));
+                    },
+                    icon: const Icon(
+                      Icons.add_circle_rounded,
+                      color: ColorName.primary,
+                    ),
+                  ),
+                ],
+              )
+            else
+              const Padding(
+                padding: EdgeInsets.only(top: 15),
+                child: Text(
+                  'Stok Kosong',
+                  style: TextStyle(
+                    color: ColorName.grey,
                   ),
                 ),
-                IconButton(
-                  onPressed: () {
-                    context
-                        .read<CartBloc>()
-                        .add(CartEvent.add(CartModel(product: data, qty: 1)));
-                  },
-                  icon: const Icon(
-                    Icons.add_circle_rounded,
-                    color: ColorName.primary,
-                  ),
-                ),
-              ],
-            ),
+              )
           ],
         ),
       ),

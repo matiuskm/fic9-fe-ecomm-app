@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/products/products_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/order/bloc/order_detail/order_detail_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/payment/payment_failed_page.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/payment/payment_success_page.dart';
+import 'package:flutter_fic9_ecommerce_app/presentation/shipping_address/bloc/get_address/get_address_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class OrderPage extends StatefulWidget {
@@ -23,6 +25,7 @@ class OrderPage extends StatefulWidget {
 class _OrderPageState extends State<OrderPage> {
   WebViewController? controller;
   Timer? _timer;
+  bool isShown = false;
 
   @override
   void initState() {
@@ -41,9 +44,11 @@ class _OrderPageState extends State<OrderPage> {
       );
     const oneSec = Duration(seconds: 8);
     _timer = Timer.periodic(oneSec, (Timer timer) {
-      context
-          .read<OrderDetailBloc>()
-          .add(OrderDetailEvent.getOrderDetail(widget.orderId));
+      if (!isShown) {
+        context
+            .read<OrderDetailBloc>()
+            .add(OrderDetailEvent.getOrderDetail(widget.orderId));
+      }
     });
   }
 
@@ -61,16 +66,24 @@ class _OrderPageState extends State<OrderPage> {
           state.maybeWhen(
               orElse: () {},
               success: (order) {
-                if (order.data[0].attributes.status == 'paid') {
+                if (order.data[0].attributes.status == 'paid' && !isShown) {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (_) => const PaymentSuccessPage()));
-                } else if (order.data[0].attributes.status == 'canceled') {
+                  if (context.mounted) {
+                    context
+                        .read<ProductsBloc>()
+                        .add(const ProductsEvent.getAll());
+                  }
+                  isShown = true;
+                } else if (order.data[0].attributes.status == 'canceled' &&
+                    !isShown) {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (_) => const PaymentFailedPage()));
+                  isShown = true;
                 }
               });
         },

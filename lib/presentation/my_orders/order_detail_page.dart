@@ -20,12 +20,18 @@ class OrderDetailPage extends StatefulWidget {
 }
 
 class _OrderDetailPageState extends State<OrderDetailPage> {
+  final Map<String, String> courierOptions = {
+    'jne': 'JNE',
+    'pos': 'POS Indonesia',
+    'sicepat': 'SiCepat',
+  };
+
   @override
   Widget build(BuildContext context) {
     int totalItem = 0;
     int item = 0;
     List<String> status = [];
-    for(var e in widget.myOrder.attributes.items) {
+    for (var e in widget.myOrder.attributes.items) {
       totalItem += e.qty * e.price;
       item += e.qty;
     }
@@ -82,7 +88,8 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                 const SpaceHeight(12.0),
                 RowText(
                   label: 'Ekspedisi Pengiriman',
-                  value: widget.myOrder.attributes.shippingCourier,
+                  value:
+                      courierOptions[widget.myOrder.attributes.shippingCourier],
                 ),
                 const SpaceHeight(12.0),
                 RowText(

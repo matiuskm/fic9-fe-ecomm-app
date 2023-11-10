@@ -24,49 +24,55 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
       appBar: AppBar(
         title: const Text('Pesanan Saya'),
       ),
-      body: BlocBuilder<MyOrderBloc, MyOrderState>(
-        builder: (context, state) {
-          return state.maybeWhen(
-            orElse: () => const SpaceHeight(0.0),
-            loading: () => const Center(child: CircularProgressIndicator()),
-            loaded: (orders) {
-              if (orders.isEmpty) {
-                return Center(
-                  child: Column(
-                    children: [
-                      const Text('Belum ada pesanan'),
-                      Button.filled(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const DashboardPage()));
-                          },
-                          label: 'Mulai belanja')
-                    ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: BlocBuilder<MyOrderBloc, MyOrderState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => const SpaceHeight(0.0),
+              loading: () => const Center(child: CircularProgressIndicator()),
+              loaded: (orders) {
+                if (orders.isEmpty) {
+                  return Center(
+                    child: Column(
+                      children: [
+                        const Text('Belum ada pesanan'),
+                        Button.filled(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const DashboardPage()));
+                            },
+                            label: 'Mulai belanja')
+                      ],
+                    ),
+                  );
+                }
+                return RefreshIndicator(
+                  onRefresh: refreshdata,
+                  child: ListView.separated(
+                    itemBuilder: (context, index) =>
+                        MyOrderCard(data: orders[index]),
+                    separatorBuilder: (context, index) =>
+                        const SpaceHeight(16.0),
+                    itemCount: orders.length,
                   ),
                 );
-              }
-              return RefreshIndicator(
-                onRefresh: refreshdata,
-                child: ListView.separated(
-                  itemBuilder: (context, index) =>
-                      MyOrderCard(data: orders[index]),
-                  separatorBuilder: (context, index) => const SpaceHeight(16.0),
-                  itemCount: orders.length,
-                ),
-              );
-              // return _buildWidgetListDataAndroid(orders);
-            },
-          );
-        },
+                // return _buildWidgetListDataAndroid(orders);
+              },
+            );
+          },
+        ),
       ),
     );
   }
 
   Future<void> refreshdata() async {
     await Future.delayed(const Duration(seconds: 1));
-    if (context.mounted) context.read<MyOrderBloc>().add(const MyOrderEvent.getMyOrder());
+    if (context.mounted) {
+      context.read<MyOrderBloc>().add(const MyOrderEvent.getMyOrder());
+    }
     setState(() {});
   }
 }

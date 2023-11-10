@@ -51,11 +51,47 @@ extension DateTimeExt on DateTime {
     }
   }
 
+  String _getNamaBulanPendek(int bulan) {
+    switch (bulan) {
+      case 1:
+        return 'Jan';
+      case 2:
+        return 'Feb';
+      case 3:
+        return 'Mar';
+      case 4:
+        return 'Apr';
+      case 5:
+        return 'Mei';
+      case 6:
+        return 'Jun';
+      case 7:
+        return 'Jul';
+      case 8:
+        return 'Agu';
+      case 9:
+        return 'Sep';
+      case 10:
+        return 'Okt';
+      case 11:
+        return 'Nov';
+      case 12:
+        return 'Des';
+      default:
+        return 'N/A';
+    }
+  }
+
   String toFormattedDateWithDay() {
     final String hari = _getNamaHari(weekday);
     final String bulan = _getNamaBulan(month);
     final int tahun = year;
     return '$hari, $day $bulan $tahun';
+  }
+
+  String toFormattedDateOnly() {
+    final String bulan = _getNamaBulanPendek(month);
+    return '$day $bulan $year';
   }
 
   String toFormattedDatetime() {

@@ -19,21 +19,24 @@ mixin _$GetCostEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String origin, String destination, String courier)
+    required TResult Function(
+            String origin, String destination, String courier, String weight)
         getCost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String origin, String destination, String courier)?
+    TResult? Function(
+            String origin, String destination, String courier, String weight)?
         getCost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String origin, String destination, String courier)?
+    TResult Function(
+            String origin, String destination, String courier, String weight)?
         getCost,
     required TResult orElse(),
   }) =>
@@ -116,7 +119,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String origin, String destination, String courier)
+    required TResult Function(
+            String origin, String destination, String courier, String weight)
         getCost,
   }) {
     return started();
@@ -126,7 +130,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String origin, String destination, String courier)?
+    TResult? Function(
+            String origin, String destination, String courier, String weight)?
         getCost,
   }) {
     return started?.call();
@@ -136,7 +141,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String origin, String destination, String courier)?
+    TResult Function(
+            String origin, String destination, String courier, String weight)?
         getCost,
     required TResult orElse(),
   }) {
@@ -188,7 +194,7 @@ abstract class _$$GetCostImplCopyWith<$Res> {
           _$GetCostImpl value, $Res Function(_$GetCostImpl) then) =
       __$$GetCostImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String origin, String destination, String courier});
+  $Res call({String origin, String destination, String courier, String weight});
 }
 
 /// @nodoc
@@ -205,6 +211,7 @@ class __$$GetCostImplCopyWithImpl<$Res>
     Object? origin = null,
     Object? destination = null,
     Object? courier = null,
+    Object? weight = null,
   }) {
     return _then(_$GetCostImpl(
       origin: null == origin
@@ -219,6 +226,10 @@ class __$$GetCostImplCopyWithImpl<$Res>
           ? _value.courier
           : courier // ignore: cast_nullable_to_non_nullable
               as String,
+      weight: null == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -227,7 +238,10 @@ class __$$GetCostImplCopyWithImpl<$Res>
 
 class _$GetCostImpl implements _GetCost {
   const _$GetCostImpl(
-      {required this.origin, required this.destination, required this.courier});
+      {required this.origin,
+      required this.destination,
+      required this.courier,
+      required this.weight});
 
   @override
   final String origin;
@@ -235,10 +249,12 @@ class _$GetCostImpl implements _GetCost {
   final String destination;
   @override
   final String courier;
+  @override
+  final String weight;
 
   @override
   String toString() {
-    return 'GetCostEvent.getCost(origin: $origin, destination: $destination, courier: $courier)';
+    return 'GetCostEvent.getCost(origin: $origin, destination: $destination, courier: $courier, weight: $weight)';
   }
 
   @override
@@ -249,11 +265,13 @@ class _$GetCostImpl implements _GetCost {
             (identical(other.origin, origin) || other.origin == origin) &&
             (identical(other.destination, destination) ||
                 other.destination == destination) &&
-            (identical(other.courier, courier) || other.courier == courier));
+            (identical(other.courier, courier) || other.courier == courier) &&
+            (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, origin, destination, courier);
+  int get hashCode =>
+      Object.hash(runtimeType, origin, destination, courier, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -265,32 +283,35 @@ class _$GetCostImpl implements _GetCost {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String origin, String destination, String courier)
+    required TResult Function(
+            String origin, String destination, String courier, String weight)
         getCost,
   }) {
-    return getCost(origin, destination, courier);
+    return getCost(origin, destination, courier, weight);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String origin, String destination, String courier)?
+    TResult? Function(
+            String origin, String destination, String courier, String weight)?
         getCost,
   }) {
-    return getCost?.call(origin, destination, courier);
+    return getCost?.call(origin, destination, courier, weight);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String origin, String destination, String courier)?
+    TResult Function(
+            String origin, String destination, String courier, String weight)?
         getCost,
     required TResult orElse(),
   }) {
     if (getCost != null) {
-      return getCost(origin, destination, courier);
+      return getCost(origin, destination, courier, weight);
     }
     return orElse();
   }
@@ -331,11 +352,13 @@ abstract class _GetCost implements GetCostEvent {
   const factory _GetCost(
       {required final String origin,
       required final String destination,
-      required final String courier}) = _$GetCostImpl;
+      required final String courier,
+      required final String weight}) = _$GetCostImpl;
 
   String get origin;
   String get destination;
   String get courier;
+  String get weight;
   @JsonKey(ignore: true)
   _$$GetCostImplCopyWith<_$GetCostImpl> get copyWith =>
       throw _privateConstructorUsedError;
