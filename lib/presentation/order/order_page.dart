@@ -6,7 +6,6 @@ import 'package:flutter_fic9_ecommerce_app/presentation/home/blocs/products/prod
 import 'package:flutter_fic9_ecommerce_app/presentation/order/bloc/order_detail/order_detail_bloc.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/payment/payment_failed_page.dart';
 import 'package:flutter_fic9_ecommerce_app/presentation/payment/payment_success_page.dart';
-import 'package:flutter_fic9_ecommerce_app/presentation/shipping_address/bloc/get_address/get_address_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class OrderPage extends StatefulWidget {

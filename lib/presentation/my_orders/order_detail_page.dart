@@ -53,6 +53,15 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
             status: status,
           ),
           const SpaceHeight(24.0),
+          Text(
+            widget.myOrder.attributes.orderNumber,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+            ),
+          ),
+          const SpaceHeight(24.0),
           const Text(
             'Produk',
             style: TextStyle(fontWeight: FontWeight.w700),

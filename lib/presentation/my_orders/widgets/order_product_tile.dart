@@ -22,19 +22,31 @@ class OrderProductTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  '${item.productName} x ${item.qty} item',
-                  style: const TextStyle(
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w700,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        item.productName,
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'x ${item.qty} item',
+                      style: const TextStyle(
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ],
                 ),
                 const SpaceHeight(20.0),
                 Text(
                   '${item.price.currencyFormatIdr} x ${item.qty} item = ${(item.price * item.qty).currencyFormatIdr}',
                   style: const TextStyle(
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w700,
                     color: ColorName.primary,
                   ),
                 ),

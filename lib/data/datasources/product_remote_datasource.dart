@@ -6,8 +6,8 @@ import 'package:flutter_fic9_ecommerce_app/data/models/responses/product_respons
 
 class ProductRemoteDatasource {
   Future<Either<String, ProductResponseModel>> getAllProduct() async {
-    final response = await http
-        .get(Uri.parse('${Variables.baseUrl}/api/products?populate=*'));
+    final response = await http.get(Uri.parse(
+        '${Variables.baseUrl}/api/products?populate=*&sort=stock:desc'));
     if (response.statusCode == 200) {
       return Right(ProductResponseModel.fromJson(response.body));
     } else {
@@ -19,7 +19,8 @@ class ProductRemoteDatasource {
       String catId) async {
     final token = await AuthLocalDatasource().getToken();
     final response = await http.get(
-        Uri.parse('${Variables.baseUrl}/api/products?populate=*&filters[categories][id][\$eq]=$catId'),
+        Uri.parse(
+            '${Variables.baseUrl}/api/products?populate=*&filters[categories][id][\$eq]=$catId'),
         headers: <String, String>{
           "content-type": "application/json; charset=UTF-8",
           "Authentication": 'Bearer $token',
